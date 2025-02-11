@@ -10,9 +10,15 @@ namespace BGwalks.API.Controllers
         [HttpGet]
         public IActionResult getAllStudents()
         {
-            var studentNames = new string[]{ "Ahmed","Joe"};
+            var studentNames = new string[] { "Ahmed", "Joe" };
             return Ok(studentNames);
 
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteStudent(int id)
+        {
+            return NoContent();
         }
 
     }
