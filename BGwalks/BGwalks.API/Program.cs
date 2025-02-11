@@ -1,3 +1,6 @@
+using BGwalks.API.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace BGwalks.API
 {
     public class Program
@@ -5,11 +8,16 @@ namespace BGwalks.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.addserd
 
             // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();  // Required for Swagger to work
             builder.Services.AddSwaggerGen();  // Registers the Swagger generator
+            builder.Services.AddDbContext<BGWalksDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
+            });
 
             // building
             var app = builder.Build();
