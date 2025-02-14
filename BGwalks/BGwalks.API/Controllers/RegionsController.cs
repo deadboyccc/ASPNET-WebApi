@@ -92,7 +92,9 @@ namespace BGwalks.API.Controllers
             _dbContext.SaveChanges();
 
             // return 201 with the new region id
-            return CreatedAtAction(nameof(GetById), new { id = newRegion.Id }, newRegion);
+            // action name = nameof(GetById) = we are using the GetById controller to return the newly craeted
+
+            return CreatedAtAction(nameof(GetById), new { id = newRegion.Id }, newRegion.Id);
 
 
         }
