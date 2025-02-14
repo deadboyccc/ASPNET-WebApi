@@ -76,7 +76,7 @@ namespace BGwalks.API.Controllers
 
         // Create Region controller
         // takes the DTO from the client side
-        [HttpPost("{regionCreateDto:regionCreateDto}")]
+        [HttpPost]
         public IActionResult CreateRegion([FromBody] regionCreateDto regionCreateDto)
         {
             // create a new region entity (domain model)
@@ -91,10 +91,17 @@ namespace BGwalks.API.Controllers
             _dbContext.Regions.Add(newRegion);
             _dbContext.SaveChanges();
 
+            //map domain to DTO
+            var regionDto = new RegionDto
+            {
+                Id = newRegion.Id,
+                Name = newRegion.Name,
+                RegionImageUrl = newRegion.RegionImageUrl
+            };
+
             // return 201 with the new region id
             // action name = nameof(GetById) = we are using the GetById controller to return the newly craeted
-
-            return CreatedAtAction(nameof(GetById), new { id = newRegion.Id }, newRegion.Id);
+            return CreatedAtAction(nameof(GetById), new { id = newRegion.Id }, regionDto);
 
 
         }
