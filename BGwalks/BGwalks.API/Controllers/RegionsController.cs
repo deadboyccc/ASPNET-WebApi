@@ -41,7 +41,10 @@ namespace BGwalks.API.Controllers
 
 
         // get by id (:guid) == typesafety
-        [HttpGet("{id:guid}")]
+        [HttpGet]
+        [Route("{id:guid}")]
+
+
         public IActionResult GetById([FromRoute] Guid id)
         {
             // get data from the domain models
@@ -106,7 +109,65 @@ namespace BGwalks.API.Controllers
 
         }
 
+        // Updating a region 
+        [HttpPatch]
+        [Route("{id:guid}")]
+        public IActionResult UpdateRegion([FromRoute] Guid id, [FromBody] RegionUpdateDto regionUpdateDto)
+        {
+            // find the region in the database
+            var region = _dbContext.Regions.Find(id);
+
+            // if not found, return 404
+            if (region == null)
+            {
+                return NotFound();
+            }
+
+            // update the region properties in the domain model with the passed DTO 
+            region.Name = regionUpdateDto.Name;
+            region.RegionImageUrl = regionUpdateDto.RegionImageUrl;
+
+            // save the updated region to the database
+            _dbContext.SaveChanges();
+
+
+            // Convert domain model to DTO(refactor DRY)
+            RegionDto regionDto = new()
+            {
+                Id = region.Id,
+                Name = region.Name,
+                RegionImageUrl = region.RegionImageUrl
+            };
+
+            // return 200 with the updated region
+            return Ok(regionDto);
+
+            // return 204 (with/without content)
+            // return NoContent();
+
+        }
+        // Delete a region by Id
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public IActionResult DeleteRegion([FromRoute] Guid id)
+        {
+            // find the region in the database
+            var region = _dbContext.Regions.Find(id);
+
+            // if not found, return 404
+            if (region == null)
+            {
+                return NotFound();
+            }
+
+            // delete the region from the database
+            _dbContext.Regions.Remove(region);
+            _dbContext.SaveChanges();
+
+            // return 204
+            return NoContent();
+
+        }
 
     }
-
 }
