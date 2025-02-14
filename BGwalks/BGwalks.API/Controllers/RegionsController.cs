@@ -1,5 +1,6 @@
 using BGwalks.API.Data;
 using BGwalks.API.Models.Domain;
+using BGwalks.API.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +20,23 @@ namespace BGwalks.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
+            // get all regions from the domain models
             var regions = _dbContext.Regions.ToList();
 
+            //DTO 
+            var regionsDto = new List<RegionDto>();
+            foreach (var region in regions)
+            {
+                regionsDto.Add(new RegionDto
+                {
+                    Id = region.Id,
+                    Name = region.Name,
+                    RegionImageUrl = region.RegionImageUrl
+                });
+            }
+
             // 200
-            return Ok(regions);
+            return Ok(regionsDto);
         }
 
 
@@ -38,6 +52,16 @@ namespace BGwalks.API.Controllers
 
             // linq
             // var region = _dbContext.Regions.FirstOrDefault(r => r.Id == id);
+            var regionDto = new List<RegionDto>();
+            if (region != null)
+            {
+                regionDto.Add(new RegionDto
+                {
+                    Id = region.Id,
+                    Name = region.Name,
+                    RegionImageUrl = region.RegionImageUrl
+                });
+            }
 
             // 200 if found, 404 if not found
             if (region == null)
@@ -46,9 +70,33 @@ namespace BGwalks.API.Controllers
                 return NotFound();
             }
             // return DTO
-            return Ok(region);
+            return Ok(regionDto);
 
         }
+
+        // Create Region controller
+        // takes the DTO from the client side
+        [HttpPost("{regionCreateDto:regionCreateDto}")]
+        public IActionResult CreateRegion([FromBody] regionCreateDto regionCreateDto)
+        {
+            // create a new region entity (domain model)
+            var newRegion = new Region
+            {
+                Id = Guid.NewGuid(),
+                Name = regionCreateDto.Name,
+                RegionImageUrl = regionCreateDto.RegionImageUrl
+            };
+
+            // save to the database
+            _dbContext.Regions.Add(newRegion);
+            _dbContext.SaveChanges();
+
+            // return 201 with the new region id
+            return CreatedAtAction(nameof(GetById), new { id = newRegion.Id }, newRegion);
+
+
+        }
+
 
     }
 
