@@ -57,7 +57,10 @@ namespace BGwalks.API.Controllers
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             // get data from the domain models
-            var region = await _dbContext.Regions.FindAsync(id);
+            // var region = await _dbContext.Regions.FindAsync(id);
+
+            //using the repo pattern
+            var region = await regionRepository.GetByIdAsync(id);
 
             // DTO implementation  - map domain models to DTOs
 
@@ -99,9 +102,12 @@ namespace BGwalks.API.Controllers
                 RegionImageUrl = regionCreateDto.RegionImageUrl
             };
 
-            // save to the database
-            await _dbContext.Regions.AddAsync(newRegion);
-            await _dbContext.SaveChangesAsync();
+            // save to the database - using the db context
+            // await _dbContext.Regions.AddAsync(newRegion);
+            // await _dbContext.SaveChangesAsync();
+
+            // using the repo pattern
+            await regionRepository.AddAsync(newRegion);
 
             //map domain to DTO
             var regionDto = new RegionDto
@@ -124,8 +130,11 @@ namespace BGwalks.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> UpdateRegion([FromRoute] Guid id, [FromBody] RegionUpdateDto regionUpdateDto)
         {
-            // find the region in the database
-            var region = await _dbContext.Regions.FindAsync(id);
+            // find the region in the database - using the dbContext
+            // var region = await _dbContext.Regions.FindAsync(id);
+
+            // using the repo pattern
+            var region = await regionRepository.GetByIdAsync(id);
 
             // if not found, return 404
             if (region == null)
@@ -161,8 +170,11 @@ namespace BGwalks.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> DeleteRegion([FromRoute] Guid id)
         {
-            // find the region in the database
-            var region = await _dbContext.Regions.FindAsync(id);
+            // find the region in the database - using the db context
+            // var region = await _dbContext.Regions.FindAsync(id);
+
+            // using the repo pattern
+            var region = await regionRepository.GetByIdAsync(id);
 
             // if not found, return 404
             if (region == null)
