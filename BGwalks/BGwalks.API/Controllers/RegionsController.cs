@@ -2,6 +2,7 @@ using System.Threading.Tasks.Dataflow;
 using BGwalks.API.Data;
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
+using BGwalks.API.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,15 +16,21 @@ namespace BGwalks.API.Controllers
     {
         // Dependency injection when the controller is created inject the db context that is injected/coming from the asp app
         private readonly BGWalksDbContext _dbContext;
-        public RegionsController(BGWalksDbContext dbContext)
+        private readonly IRegionRepository regionRepository;
+
+        public RegionsController(BGWalksDbContext dbContext, IRegionRepository regionRepository)
         {
             this._dbContext = dbContext;
+            this.regionRepository = regionRepository;
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            // get all regions from the domain models
-            var regions = await _dbContext.Regions.ToListAsync();
+            // db context implementation 
+            // var regions = await _dbContext.Regions.ToListAsync();
+
+            // Repo Design Pattern
+            var regions = await regionRepository.GetAllAsync();
 
             //DTO 
             var regionsDto = new List<RegionDto>();
@@ -105,7 +112,8 @@ namespace BGwalks.API.Controllers
             };
 
             // return 201 with the new region id
-            // action name = nameof(GetById) = we are using the GetById controller to return the newly craeted
+            // action name = nameof(GetById) - sending the id=newRegion.id to the GetById to create the resource header
+            /// regionDto then is sent to the client
             return CreatedAtAction(nameof(GetById), new { id = newRegion.Id }, regionDto);
 
 

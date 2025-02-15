@@ -1,4 +1,5 @@
 using BGwalks.API.Data;
+using BGwalks.API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API
@@ -17,6 +18,7 @@ namespace BGwalks.API
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
             });
+            builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
 
             // building
             var app = builder.Build();
