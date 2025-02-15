@@ -18,9 +18,11 @@ namespace BGwalks.API
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
             });
+
+            // Repository Design Pattern
             builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
 
-            // building
+            // Building
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
