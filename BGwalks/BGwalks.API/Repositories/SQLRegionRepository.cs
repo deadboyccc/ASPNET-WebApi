@@ -60,10 +60,10 @@ public class SQLRegionRepository : IRegionRepository
   }
 
   // Update a region
-  public async Task<Region?> UpdateAsync(Region region)
+  public async Task<Region?> UpdateAsync(Guid id, Region region)
   {
     // 1. Get existing region.
-    var regionToBeUpdated = await dbContext.Regions.FindAsync(region.Id);
+    var regionToBeUpdated = await dbContext.Regions.FindAsync(id);
 
     // 2. Handle missing region.
     if (regionToBeUpdated == null)
@@ -80,7 +80,7 @@ public class SQLRegionRepository : IRegionRepository
     // 4. Save changes.
     await dbContext.SaveChangesAsync();
 
-    // 5. Return updated region.
+    // 5. Return updated region 
     return regionToBeUpdated;
   }
 

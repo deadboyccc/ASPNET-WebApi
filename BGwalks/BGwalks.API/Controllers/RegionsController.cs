@@ -133,8 +133,14 @@ namespace BGwalks.API.Controllers
             // find the region in the database - using the dbContext
             // var region = await _dbContext.Regions.FindAsync(id);
 
+            // creating a region from the region DTO
             // using the repo pattern
-            var region = await regionRepository.GetByIdAsync(id);
+            var region = await regionRepository.UpdateAsync(id, new Region()
+            {
+                Id = id,
+                Name = regionUpdateDto.Name,
+                RegionImageUrl = regionUpdateDto.RegionImageUrl
+            });
 
             // if not found, return 404
             if (region == null)
@@ -142,12 +148,13 @@ namespace BGwalks.API.Controllers
                 return NotFound();
             }
 
-            // update the region properties in the domain model with the passed DTO 
-            region.Name = regionUpdateDto.Name;
-            region.RegionImageUrl = regionUpdateDto.RegionImageUrl;
+            // // using the db context
+            // // update the region properties in the domain model with the passed DTO 
+            // region.Name = regionUpdateDto.Name;
+            // region.RegionImageUrl = regionUpdateDto.RegionImageUrl;
 
-            // save the updated region to the database
-            await _dbContext.SaveChangesAsync();
+            // // save the updated region to the database
+            // await _dbContext.SaveChangesAsync();
 
 
             // Convert domain model to DTO(refactor DRY)

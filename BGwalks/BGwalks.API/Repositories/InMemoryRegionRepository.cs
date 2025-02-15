@@ -29,7 +29,7 @@ class InMemoryRegionRepository : IRegionRepository
     throw new NotImplementedException();
   }
 
-  public Task<Region?> UpdateAsync(Region region)
+  public Task<Region?> UpdateAsync(Guid id, Region region)
   {
     throw new NotImplementedException();
   }
