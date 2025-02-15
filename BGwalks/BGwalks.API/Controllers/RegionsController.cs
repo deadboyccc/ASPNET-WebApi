@@ -1,8 +1,10 @@
+using System.Threading.Tasks.Dataflow;
 using BGwalks.API.Data;
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API.Controllers
 {
@@ -18,10 +20,10 @@ namespace BGwalks.API.Controllers
             this._dbContext = dbContext;
         }
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             // get all regions from the domain models
-            var regions = _dbContext.Regions.ToList();
+            var regions = await _dbContext.Regions.ToListAsync();
 
             //DTO 
             var regionsDto = new List<RegionDto>();
@@ -45,10 +47,10 @@ namespace BGwalks.API.Controllers
         [Route("{id:guid}")]
 
 
-        public IActionResult GetById([FromRoute] Guid id)
+        public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             // get data from the domain models
-            var region = _dbContext.Regions.Find(id);
+            var region = await _dbContext.Regions.FindAsync(id);
 
             // DTO implementation  - map domain models to DTOs
 
@@ -80,7 +82,7 @@ namespace BGwalks.API.Controllers
         // Create Region controller
         // takes the DTO from the client side
         [HttpPost]
-        public IActionResult CreateRegion([FromBody] regionCreateDto regionCreateDto)
+        public async Task<IActionResult> CreateRegion([FromBody] regionCreateDto regionCreateDto)
         {
             // create a new region entity (domain model)
             var newRegion = new Region
@@ -91,8 +93,8 @@ namespace BGwalks.API.Controllers
             };
 
             // save to the database
-            _dbContext.Regions.Add(newRegion);
-            _dbContext.SaveChanges();
+            await _dbContext.Regions.AddAsync(newRegion);
+            await _dbContext.SaveChangesAsync();
 
             //map domain to DTO
             var regionDto = new RegionDto
@@ -112,10 +114,10 @@ namespace BGwalks.API.Controllers
         // Updating a region 
         [HttpPatch]
         [Route("{id:guid}")]
-        public IActionResult UpdateRegion([FromRoute] Guid id, [FromBody] RegionUpdateDto regionUpdateDto)
+        public async Task<IActionResult> UpdateRegion([FromRoute] Guid id, [FromBody] RegionUpdateDto regionUpdateDto)
         {
             // find the region in the database
-            var region = _dbContext.Regions.Find(id);
+            var region = await _dbContext.Regions.FindAsync(id);
 
             // if not found, return 404
             if (region == null)
@@ -128,7 +130,7 @@ namespace BGwalks.API.Controllers
             region.RegionImageUrl = regionUpdateDto.RegionImageUrl;
 
             // save the updated region to the database
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
 
 
             // Convert domain model to DTO(refactor DRY)
@@ -149,10 +151,10 @@ namespace BGwalks.API.Controllers
         // Delete a region by Id
         [HttpDelete]
         [Route("{id:guid}")]
-        public IActionResult DeleteRegion([FromRoute] Guid id)
+        public async Task<IActionResult> DeleteRegion([FromRoute] Guid id)
         {
             // find the region in the database
-            var region = _dbContext.Regions.Find(id);
+            var region = await _dbContext.Regions.FindAsync(id);
 
             // if not found, return 404
             if (region == null)
@@ -162,7 +164,7 @@ namespace BGwalks.API.Controllers
 
             // delete the region from the database
             _dbContext.Regions.Remove(region);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
 
             // return 204
             return NoContent();
