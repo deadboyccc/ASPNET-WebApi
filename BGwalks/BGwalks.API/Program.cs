@@ -37,6 +37,7 @@ namespace BGwalks.API
             app.MapControllers();
 
             app.Run();
+
         }
     }
 }

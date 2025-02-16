@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace BGwalks.API.Controllers
+// TESTING - NOT AN APP RESOURCE
 {
     [Route("api/[controller]")]
     [ApiController]
