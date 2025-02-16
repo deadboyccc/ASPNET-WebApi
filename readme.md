@@ -3,7 +3,7 @@
 ## Overview
 BGwalks is an API designed to manage information about walking trails, including details about the trails themselves, their difficulty levels, and the regions they are located in. The project is built using ASP.NET Core and Entity Framework Core, and it follows a RESTful architecture.
 
-## Project Structure
+## Project Structure - Not updated
 - **BGwalks.sln**: Solution file for the project.
 - **BGwalks.API**: Main project directory.
   - **appsettings.json**: Configuration file for logging and database connections.
