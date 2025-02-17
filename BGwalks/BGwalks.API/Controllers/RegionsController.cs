@@ -95,7 +95,7 @@ namespace BGwalks.API.Controllers
         public async Task<IActionResult> CreateRegion([FromBody] regionCreateDto regionCreateDto)
         {
             // create a new region entity (domain model)
-            var newRegion = new Region
+            var newRegion = new RegionDomain
             {
                 Id = Guid.NewGuid(),
                 Name = regionCreateDto.Name,
@@ -135,7 +135,7 @@ namespace BGwalks.API.Controllers
 
             // creating a region from the region DTO
             // using the repo pattern
-            var region = await regionRepository.UpdateAsync(id, new Region()
+            var region = await regionRepository.UpdateAsync(id, new RegionDomain()
             {
                 Id = id,
                 Name = regionUpdateDto.Name,

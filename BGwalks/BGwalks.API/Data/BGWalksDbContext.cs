@@ -3,18 +3,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API.Data
 {
-    public class BGWalksDbContext:DbContext
+    public class BGWalksDbContext : DbContext
     {
 
         public BGWalksDbContext(DbContextOptions dbContextOptions)
-            :base(dbContextOptions)
+            : base(dbContextOptions)
         {
 
-            
+
         }
-        public DbSet<Difficulty> Difficulties { get; set; }
-        public DbSet<Walk> Walks { get; set; }
-        public DbSet<Region> Regions { get; set; }
+        public DbSet<DifficultyDomain> Difficulties { get; set; }
+        public DbSet<WalkDomain> Walks { get; set; }
+        public DbSet<RegionDomain> Regions { get; set; }
 
     }
 }

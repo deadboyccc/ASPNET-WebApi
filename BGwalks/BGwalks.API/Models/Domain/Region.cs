@@ -1,6 +1,6 @@
 ﻿namespace BGwalks.API.Models.Domain
 {
-    public class Region
+    public class RegionDomain
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }

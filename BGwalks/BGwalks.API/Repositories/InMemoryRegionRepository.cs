@@ -4,7 +4,7 @@ using BGwalks.API.Models.Domain;
 namespace BGwalks.API.Repositories;
 class InMemoryRegionRepository : IRegionRepository
 {
-  public Task<Region> AddAsync(Region region)
+  public Task<RegionDomain> AddAsync(RegionDomain region)
   {
     throw new NotImplementedException();
   }
@@ -19,17 +19,17 @@ class InMemoryRegionRepository : IRegionRepository
     throw new NotImplementedException();
   }
 
-  public Task<List<Region>> GetAllAsync()
+  public Task<List<RegionDomain>> GetAllAsync()
   {
     throw new NotImplementedException();
   }
 
-  public Task<Region?> GetByIdAsync(Guid id)
+  public Task<RegionDomain?> GetByIdAsync(Guid id)
   {
     throw new NotImplementedException();
   }
 
-  public Task<Region?> UpdateAsync(Guid id, Region region)
+  public Task<RegionDomain?> UpdateAsync(Guid id, RegionDomain region)
   {
     throw new NotImplementedException();
   }

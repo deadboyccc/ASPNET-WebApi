@@ -15,7 +15,7 @@ public class SQLRegionRepository : IRegionRepository
 
 
   // Create a region
-  public async Task<Region> AddAsync(Region region)
+  public async Task<RegionDomain> AddAsync(RegionDomain region)
   {
     await dbContext.Regions.AddAsync(region);
     await dbContext.SaveChangesAsync();
@@ -40,14 +40,14 @@ public class SQLRegionRepository : IRegionRepository
   }
 
   // Get all regions
-  public async Task<List<Region>> GetAllAsync()
+  public async Task<List<RegionDomain>> GetAllAsync()
   {
     return await dbContext.Regions.ToListAsync();
 
   }
 
   // Get a region by id
-  public async Task<Region?> GetByIdAsync(Guid id)
+  public async Task<RegionDomain?> GetByIdAsync(Guid id)
   {
     var region = await dbContext.Regions.FindAsync(id);
     if (region == null)
@@ -60,7 +60,7 @@ public class SQLRegionRepository : IRegionRepository
   }
 
   // Update a region
-  public async Task<Region?> UpdateAsync(Guid id, Region region)
+  public async Task<RegionDomain?> UpdateAsync(Guid id, RegionDomain region)
   {
     // 1. Get existing region.
     var regionToBeUpdated = await dbContext.Regions.FindAsync(id);
