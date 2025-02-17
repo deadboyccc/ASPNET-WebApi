@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A767B40E-1D61-46E0-8A0A-C46D1DE3B35F}|BGwalks.API\\BGwalks.API.csproj|c:\\users\\ahmed\\desktop\\projects\\aspnet-webapi\\bgwalks\\bgwalks.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A767B40E-1D61-46E0-8A0A-C46D1DE3B35F}|BGwalks.API\\BGwalks.API.csproj|solutionrelative:bgwalks.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Migrations\\20250211012634_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BGwalks.API\\Migrations\\20250211012634_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A767B40E-1D61-46E0-8A0A-C46D1DE3B35F}|BGwalks.API\\BGwalks.API.csproj|c:\\users\\ahmed\\desktop\\projects\\aspnet-webapi\\bgwalks\\bgwalks.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A767B40E-1D61-46E0-8A0A-C46D1DE3B35F}|BGwalks.API\\BGwalks.API.csproj|solutionrelative:bgwalks.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A767B40E-1D61-46E0-8A0A-C46D1DE3B35F}|BGwalks.API\\BGwalks.API.csproj|c:\\users\\ahmed\\desktop\\projects\\aspnet-webapi\\bgwalks\\bgwalks.api\\data\\bgwalksdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A767B40E-1D61-46E0-8A0A-C46D1DE3B35F}|BGwalks.API\\BGwalks.API.csproj|solutionrelative:bgwalks.api\\data\\bgwalksdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250211012634_initial migration.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Migrations\\20250211012634_initial migration.cs",
+              "RelativeDocumentMoniker": "BGwalks.API\\Migrations\\20250211012634_initial migration.cs",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Migrations\\20250211012634_initial migration.cs",
+              "RelativeToolTip": "BGwalks.API\\Migrations\\20250211012634_initial migration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T01:26:34.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Program.cs",
+              "RelativeDocumentMoniker": "BGwalks.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Program.cs",
+              "RelativeToolTip": "BGwalks.API\\Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA8wAcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T01:18:57.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\appsettings.json",
+              "RelativeDocumentMoniker": "BGwalks.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\appsettings.json",
+              "RelativeToolTip": "BGwalks.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-11T01:06:31.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BGWalksDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Data\\BGWalksDbContext.cs",
+              "RelativeDocumentMoniker": "BGwalks.API\\Data\\BGWalksDbContext.cs",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\ASPNET-WebApi\\BGwalks\\BGwalks.API\\Data\\BGWalksDbContext.cs",
+              "RelativeToolTip": "BGwalks.API\\Data\\BGWalksDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAABEwBAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T00:59:17.949Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
