@@ -1,4 +1,5 @@
 using System.Threading.Tasks.Dataflow;
+using AutoMapper;
 using BGwalks.API.Data;
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
@@ -17,11 +18,13 @@ namespace BGwalks.API.Controllers
         // Dependency injection when the controller is created inject the db context that is injected/coming from the asp app
         private readonly BGWalksDbContext _dbContext;
         private readonly IRegionRepository regionRepository;
+        private readonly IMapper mapper;
 
-        public RegionsController(BGWalksDbContext dbContext, IRegionRepository regionRepository)
+        public RegionsController(BGWalksDbContext dbContext, IRegionRepository regionRepository, IMapper mapper)
         {
             this._dbContext = dbContext;
             this.regionRepository = regionRepository;
+            this.mapper = mapper;
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -30,22 +33,25 @@ namespace BGwalks.API.Controllers
             // var regions = await _dbContext.Regions.ToListAsync();
 
             // Repo Design Pattern
-            var regions = await regionRepository.GetAllAsync();
+            var regionsDomain = await regionRepository.GetAllAsync();
 
-            //DTO 
-            var regionsDto = new List<RegionDto>();
-            foreach (var region in regions)
-            {
-                regionsDto.Add(new RegionDto
-                {
-                    Id = region.Id,
-                    Name = region.Name,
-                    RegionImageUrl = region.RegionImageUrl
-                });
-            }
+
+            // // DTO manual creation | (replaced with auto mapper)
+            // var regionsDto = new List<RegionDto>();
+            // foreach (var region in regions)
+            // {
+            //     regionsDto.Add(new RegionDto
+            //     {
+            //         Id = region.Id,
+            //         Name = region.Name,
+            //         RegionImageUrl = region.RegionImageUrl
+            //     });
+            // }
+
+            // Auto mapper  | <destination>(source)
 
             // 200
-            return Ok(regionsDto);
+            return Ok(mapper.Map<List<RegionGetDto>>(regionsDomain));
         }
 
 
@@ -67,10 +73,10 @@ namespace BGwalks.API.Controllers
 
             // linq
             // var region = _dbContext.Regions.FirstOrDefault(r => r.Id == id);
-            var regionDto = new List<RegionDto>();
+            var regionDto = new List<RegionGetDto>();
             if (region != null)
             {
-                regionDto.Add(new RegionDto
+                regionDto.Add(new RegionGetDto
                 {
                     Id = region.Id,
                     Name = region.Name,
@@ -110,7 +116,7 @@ namespace BGwalks.API.Controllers
             await regionRepository.AddAsync(newRegion);
 
             //map domain to DTO
-            var regionDto = new RegionDto
+            var regionDto = new RegionGetDto
             {
                 Id = newRegion.Id,
                 Name = newRegion.Name,
@@ -158,7 +164,7 @@ namespace BGwalks.API.Controllers
 
 
             // Convert domain model to DTO(refactor DRY)
-            RegionDto regionDto = new()
+            RegionGetDto regionDto = new()
             {
                 Id = region.Id,
                 Name = region.Name,

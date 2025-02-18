@@ -1,6 +1,6 @@
 namespace BGwalks.API.Models.DTO;
 
-public class RegionDto
+public class RegionGetDto
 {
   public Guid Id { get; set; }
   public string? Name { get; set; }

@@ -1,5 +1,6 @@
 using BGwalks.API.Data;
 using BGwalks.API.Mapings;
+using BGwalks.API.Models.Domain;
 using BGwalks.API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,10 @@ namespace BGwalks.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Register HttpClient
+            builder.Services.AddHttpClient();
+
 
             // Add services to the container.
             builder.Services.AddControllers();
@@ -25,6 +30,7 @@ namespace BGwalks.API
 
             // AutoMapper depedency injection
             builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
+
 
             // Building
             var app = builder.Build();
