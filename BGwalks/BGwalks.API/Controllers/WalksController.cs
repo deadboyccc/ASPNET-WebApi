@@ -3,7 +3,6 @@ using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
 using BGwalks.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API.Controllers;
 // /api/walks
@@ -14,7 +13,7 @@ public class WalksController : ControllerBase
   private readonly IMapper mapper;
   private readonly IWalkRepository walkRepository;
 
-  WalksController(IMapper mapper, IWalkRepository walkRepository)
+  public WalksController(IMapper mapper, IWalkRepository walkRepository)
   {
     this.mapper = mapper;
     this.walkRepository = walkRepository;
@@ -30,15 +29,13 @@ public class WalksController : ControllerBase
     await walkRepository.AddAsync(createdWalkDomain);
 
     // back to DTO from the created model to send to the client
-    var walkCreatedDto = mapper.Map<WalkGetDto>(createdWalkDomain);
 
-    return Ok(walkCreatedDto);
+    return Ok(mapper.Map<WalkGetDto>(createdWalkDomain));
   }
   [HttpGet]
   public IActionResult getAllStudents()
   {
-    var studentNames = new string[] { "Ahmed", "Joe" };
-    return Ok(studentNames);
+    return Ok("test");
 
   }
   [HttpDelete]
