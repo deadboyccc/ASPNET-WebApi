@@ -20,4 +20,9 @@ class SQLWalksRepository : IWalkRepository
 
     return walk;
   }
+
+  public async Task<List<WalkDomain>> GetAllAsync()
+  {
+    return await dbContext.Walks.ToListAsync();
+  }
 }

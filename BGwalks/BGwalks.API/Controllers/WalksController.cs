@@ -33,9 +33,14 @@ public class WalksController : ControllerBase
     return Ok(mapper.Map<WalkGetDto>(createdWalkDomain));
   }
   [HttpGet]
-  public IActionResult getAllStudents()
+  public async Task<IActionResult> getAllWalks()
   {
-    return Ok("test");
+    // getting them from repo
+    var walksDomain = await walkRepository.GetAllAsync();
+
+    // mapping them to DTOs & returning 200
+    return Ok(mapper.Map<List<WalkGetDto>>(walksDomain));
+
 
   }
   [HttpDelete]
