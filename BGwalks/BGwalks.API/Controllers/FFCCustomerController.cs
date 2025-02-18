@@ -20,12 +20,13 @@ public class FfcCustomerController : ControllerBase
 
   public FfcCustomerController(HttpClient httpClient)
   {
-    // class init
     _httpClient = httpClient;
+
+    // Set the Authorization header in the correct format
     _httpClient.DefaultRequestHeaders.Authorization =
-    // weird header format
-        new AuthenticationHeaderValue("Authorization", $"token {ApiKey}:{ApiSecret}");
+        new AuthenticationHeaderValue("token", $"{ApiKey}:{ApiSecret}");
   }
+
 
   // GET: api/ffc-customer/{id}
   [HttpGet("{id}")]
