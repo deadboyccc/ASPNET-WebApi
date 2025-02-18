@@ -27,6 +27,7 @@ namespace BGwalks.API
 
             // Repository design pattern dependency injection
             builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
+            builder.Services.AddScoped<IWalkRepository, SQLWalksRepository>();
 
             // AutoMapper depedency injection
             builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
