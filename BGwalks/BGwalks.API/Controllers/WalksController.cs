@@ -53,6 +53,30 @@ public class WalksController : ControllerBase
     // we await the Walk Domain model -> map it to the Walk Get DTO -> pass it to ok()
     return Ok(mapper.Map<WalkGetDto>(await walkRepository.GetByIdAsync(id)));
   }
+
+  // Update Walk PUT: /api/walks/{id}
+  [HttpPut]
+  [Route("{id:guid}")]
+  public async Task<IActionResult> UpdateWalk([FromRoute] Guid id, [FromBody] WalkUpdateDto walkDto)
+  {
+    // map DTO to domain model
+    var updatedWalkDomain = mapper.Map<WalkDomain>(walkDto);
+
+    // repo
+    updatedWalkDomain = await walkRepository.UpdateAsync(id, updatedWalkDomain);
+
+    // if not found, return 404
+    if (updatedWalkDomain == null)
+    {
+      return NotFound();
+    }
+
+    // or return ok with updated WalkGetDto
+    return Ok(mapper.Map<WalkGetDto>(updatedWalkDomain));
+  }
+  // return 204
+  // return NoContent();
+
   [HttpDelete]
   [Route("{id}")]
   public IActionResult DeleteStudent([FromRoute] int id)

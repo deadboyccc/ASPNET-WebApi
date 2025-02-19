@@ -31,4 +31,24 @@ class SQLWalksRepository : IWalkRepository
   {
     return await dbContext.Walks.Include("Difficulty").Include("Region").FirstOrDefaultAsync(w => w.Id == id);
   }
+
+  public async Task<WalkDomain?> UpdateAsync(Guid id, WalkDomain walk)
+  {
+    // 1. Get existing walk
+    var walkToBeUpdated = await dbContext.Walks.FindAsync(id);
+    if (walkToBeUpdated == null)
+    {
+      // throw new KeyNotFoundException($"Walk with Id {id} not found.") - Implement Later now just simple returns
+      return null;
+    }
+    // 2. Update properties.
+    walkToBeUpdated.Name = walk.Name;
+    walkToBeUpdated.Description = walk.Description;
+    walkToBeUpdated.DifficultyId = walk.DifficultyId;
+    walkToBeUpdated.Region = walk.Region;
+    // 3. Save changes.
+    await dbContext.SaveChangesAsync();
+    // 4. Return updated walk.
+    return walkToBeUpdated;
+  }
 }
