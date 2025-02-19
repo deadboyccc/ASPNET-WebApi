@@ -21,14 +21,16 @@ class SQLWalksRepository : IWalkRepository
     return walk;
   }
 
-  public async Task DeleteAsync(Guid id)
+  public async Task<WalkDomain?> DeleteAsync(Guid id)
   {
     var walkToDelete = await dbContext.Walks.FindAsync(id);
     if (walkToDelete != null)
     {
-      dbContext.Walks.Remove(walkToDelete);
+      var deletedWalk = dbContext.Walks.Remove(walkToDelete);
       await dbContext.SaveChangesAsync();
+      return walkToDelete;
     }
+    return null;
 
   }
 

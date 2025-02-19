@@ -79,16 +79,16 @@ public class WalksController : ControllerBase
 
   [HttpDelete]
   [Route("{id:guid}")]
-  public async Task<IActionResult> DeleteStudent([FromRoute] Guid id)
+  public async Task<IActionResult> DeleteWalk([FromRoute] Guid id)
   {
-    await walkRepository.DeleteAsync(id);
+    var deletedWalk = await walkRepository.DeleteAsync(id);
 
     // return 204
     // return NoContent();
 
 
-    // return ok with content
-    return Ok(mapper.Map<WalkGetDto>(await walkRepository.GetByIdAsync(id)));
+    // return ok with content 
+    return Ok(mapper.Map<WalkGetDto>(deletedWalk));
 
 
 
