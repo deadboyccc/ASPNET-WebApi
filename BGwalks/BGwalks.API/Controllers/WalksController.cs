@@ -32,6 +32,8 @@ public class WalksController : ControllerBase
 
     return Ok(mapper.Map<WalkGetDto>(createdWalkDomain));
   }
+
+  // Read Walk GET: /api/walks/{id}
   [HttpGet]
   public async Task<IActionResult> getAllWalks()
   {
@@ -42,6 +44,14 @@ public class WalksController : ControllerBase
     return Ok(mapper.Map<List<WalkGetDto>>(walksDomain));
 
 
+  }
+  // get Walk GET: /api/walks/{id}
+  [HttpGet]
+  [Route("{id:guid}")]
+  public async Task<IActionResult> GetById([FromRoute] Guid id)
+  {
+    // we await the Walk Domain model -> map it to the Walk Get DTO -> pass it to ok()
+    return Ok(mapper.Map<WalkGetDto>(await walkRepository.GetByIdAsync(id)));
   }
   [HttpDelete]
   [Route("{id}")]

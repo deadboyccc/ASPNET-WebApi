@@ -24,6 +24,11 @@ class SQLWalksRepository : IWalkRepository
   public async Task<List<WalkDomain>> GetAllAsync()
   {
     //action is a void delgate, fun is a return-type delegate
-    return await dbContext.Walks.Include("Difficult").Include("Region").ToListAsync();
+    return await dbContext.Walks.Include("Difficulty").Include("Region").ToListAsync();
+  }
+
+  public async Task<WalkDomain?> GetByIdAsync(Guid id)
+  {
+    return await dbContext.Walks.Include("Difficulty").Include("Region").FirstOrDefaultAsync(w => w.Id == id);
   }
 }
