@@ -1,8 +1,6 @@
-﻿namespace BGwalks.API.Models.Domain
+﻿namespace BGwalks.API.Models.Domain;
+public class DifficultyDomain
 {
-    public class DifficultyDomain
-    {
-        public Guid Id { get; set; }
-        public string? Name { get; set; }
-    }
+    public Guid Id { get; set; }
+    public string? Name { get; set; }
 }

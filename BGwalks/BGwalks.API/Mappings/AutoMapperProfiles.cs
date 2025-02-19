@@ -18,6 +18,9 @@ class AutoMapperProfiles : Profile
     CreateMap<WalkDomain, WalkCreateDto>().ReverseMap();
     CreateMap<WalkDomain, WalkGetDto>().ReverseMap();
 
+    // difficulty resource
+    CreateMap<DifficultyDomain, DifficultyGetDto>().ReverseMap();
+
   }
 
 }
