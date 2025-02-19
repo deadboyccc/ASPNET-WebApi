@@ -7,7 +7,7 @@ public interface IWalkRepository
   Task<WalkDomain?> GetByIdAsync(Guid id);
   Task<WalkDomain> AddAsync(WalkDomain walk);
   Task<WalkDomain?> UpdateAsync(Guid id, WalkDomain walk);
-  // Task DeleteAsync(Guid id);
+  Task DeleteAsync(Guid id);
 
 
 

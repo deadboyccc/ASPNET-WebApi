@@ -21,6 +21,17 @@ class SQLWalksRepository : IWalkRepository
     return walk;
   }
 
+  public async Task DeleteAsync(Guid id)
+  {
+    var walkToDelete = await dbContext.Walks.FindAsync(id);
+    if (walkToDelete != null)
+    {
+      dbContext.Walks.Remove(walkToDelete);
+      await dbContext.SaveChangesAsync();
+    }
+
+  }
+
   public async Task<List<WalkDomain>> GetAllAsync()
   {
     //action is a void delgate, fun is a return-type delegate
