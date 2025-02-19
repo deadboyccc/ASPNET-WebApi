@@ -100,6 +100,10 @@ namespace BGwalks.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRegion([FromBody] regionCreateDto regionCreateDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             // create a new region entity (domain model)
             var newRegion = new RegionDomain
             {

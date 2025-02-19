@@ -82,6 +82,11 @@ public class WalksController : ControllerBase
   public async Task<IActionResult> DeleteWalk([FromRoute] Guid id)
   {
     var deletedWalk = await walkRepository.DeleteAsync(id);
+    // if not found, return 404
+    if (deletedWalk == null)
+    {
+      return NotFound();
+    }
 
     // return 204
     // return NoContent();
