@@ -1,6 +1,7 @@
 using System.Threading.Tasks.Dataflow;
 using AutoMapper;
 using BGwalks.API.Data;
+using BGwalks.API.Filters;
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
 using BGwalks.API.Repositories;
@@ -98,12 +99,9 @@ namespace BGwalks.API.Controllers
         // Create Region controller
         // takes the DTO from the client side
         [HttpPost]
+        [ValidateModelAttributes]
         public async Task<IActionResult> CreateRegion([FromBody] regionCreateDto regionCreateDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
             // create a new region entity (domain model)
             var newRegion = new RegionDomain
             {
