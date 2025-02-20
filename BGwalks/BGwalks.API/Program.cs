@@ -13,7 +13,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add WalkDataGenerator as a service
-        // builder.Services.AddSingleton<WalkDataGenerator>();
+        builder.Services.AddSingleton<WalkDataGenerator>();
 
 
 
@@ -29,6 +29,7 @@ public class Program
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
         });
+
 
         // Repository design pattern dependency injection
         builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
@@ -54,13 +55,14 @@ public class Program
 
 
         // Resolve WalkDataGenerator and use it
-        // using (var scope = app.Services.CreateScope())
-        // {
-        //     var walkDataGenerator = scope.ServiceProvider.GetRequiredService<WalkDataGenerator>();
-        //     walkDataGenerator.GenerateWalkData(10);
-        // }
+        using (var scope = app.Services.CreateScope())
+        {
+            var walkDataGenerator = scope.ServiceProvider.GetRequiredService<WalkDataGenerator>();
+            walkDataGenerator.GenerateWalkData(10);
+        }
 
         app.Run();
+
 
     }
 }
