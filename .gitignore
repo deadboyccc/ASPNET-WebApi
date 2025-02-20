@@ -52,3 +52,5 @@ docker-compose.override.yml
 
 # Ignore NuGet dependencies
 *.nuget
+appsettings.json
+appsettings.*.json  # To ignore all environment-specific files
