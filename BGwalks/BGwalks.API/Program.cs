@@ -3,6 +3,7 @@ using BGwalks.API.Generators;
 using BGwalks.API.Mapings;
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Repositories;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API;

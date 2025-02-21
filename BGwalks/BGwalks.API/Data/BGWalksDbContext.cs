@@ -1,4 +1,5 @@
 ﻿using BGwalks.API.Models.Domain;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API.Data;

@@ -1,9 +1,12 @@
 using System.Threading.Tasks.Dataflow;
+
 using AutoMapper;
+
 using BGwalks.API.Data;
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
 using BGwalks.API.Repositories;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

@@ -1,9 +1,11 @@
+using BGwalks.API.Data;
+using BGwalks.API.Migrations;
+using BGwalks.API.Models.Domain;
+
 using Bogus;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using BGwalks.API.Data;
-using BGwalks.API.Models.Domain;
-using BGwalks.API.Migrations;
 
 namespace BGwalks.API.Generators;
 

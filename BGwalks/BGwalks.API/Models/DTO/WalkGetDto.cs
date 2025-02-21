@@ -17,4 +17,3 @@ public class WalkGetDto
     public RegionGetDto? Region { get; set; }
 
 }
-

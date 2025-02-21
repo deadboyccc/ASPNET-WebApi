@@ -1,4 +1,5 @@
 using AutoMapper;
+
 using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
 
