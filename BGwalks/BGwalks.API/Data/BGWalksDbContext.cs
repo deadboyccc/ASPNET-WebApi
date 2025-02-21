@@ -6,7 +6,7 @@ namespace BGwalks.API.Data;
 public class BGWalksDbContext : DbContext
 {
 
-    public BGWalksDbContext(DbContextOptions dbContextOptions)
+    public BGWalksDbContext(DbContextOptions<BGWalksDbContext> dbContextOptions)
         : base(dbContextOptions)
     {
 
