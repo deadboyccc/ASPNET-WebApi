@@ -27,5 +27,6 @@ public class BGWalksAuthDbContext : IdentityDbContext
     };
 
 
+    builder.Entity<IdentityRole>().HasData(roles);
   }
 }

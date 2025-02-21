@@ -5,7 +5,9 @@ using BGwalks.API.Generators;
 using BGwalks.API.Mapings;
 using BGwalks.API.Repositories;
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BGwalks.API;
@@ -28,6 +30,8 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();  // Required for Swagger to work
         builder.Services.AddSwaggerGen();  // Registers the Swagger generator
+
+        // Databases DI
         builder.Services.AddDbContext<BGWalksDbContext>(options =>
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
@@ -36,6 +40,32 @@ public class Program
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksAuthConnectionString"));
         });
+
+
+        // Identity User injection
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+           .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("BGWalks")
+           .AddEntityFrameworkStores<BGWalksAuthDbContext>()
+           .AddDefaultTokenProviders();
+        //
+        builder.Services.Configure<IdentityOptions>(options =>
+        {
+            // Password settings
+            // options.Password.RequireDigit = true;
+            options.Password.RequireLowercase = true;
+            // options.Password.RequireUppercase = true;
+            // options.Password.RequireNonAlphanumeric = true;
+            options.Password.RequiredLength = 8;
+
+            // Lockout settings
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            options.Lockout.MaxFailedAccessAttempts = 5;
+
+            // User settings
+            options.User.RequireUniqueEmail = true;
+
+        });
+
 
 
         // Repository design pattern dependency injection
