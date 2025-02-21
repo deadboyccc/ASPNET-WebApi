@@ -7,77 +7,91 @@ using Microsoft.EntityFrameworkCore;
 namespace BGwalks.API.Repositories;
 class SQLWalksRepository : IWalkRepository
 {
-    private readonly BGWalksDbContext dbContext;
+  private readonly BGWalksDbContext dbContext;
 
-    public SQLWalksRepository(BGWalksDbContext dbContext)
+  public SQLWalksRepository(BGWalksDbContext dbContext)
+  {
+    this.dbContext = dbContext;
+  }
+
+  public async Task<WalkDomain> AddAsync(WalkDomain walk)
+  {
+
+    await dbContext.Walks.AddAsync(walk);
+    await dbContext.SaveChangesAsync();
+
+    return walk;
+  }
+
+  public async Task<WalkDomain?> DeleteAsync(Guid id)
+  {
+    var walkToDelete = await dbContext.Walks.FindAsync(id);
+    if (walkToDelete != null)
     {
-        this.dbContext = dbContext;
+      var deletedWalk = dbContext.Walks.Remove(walkToDelete);
+      await dbContext.SaveChangesAsync();
+      return walkToDelete;
+    }
+    return null;
+
+  }
+
+  public async Task<List<WalkDomain>> GetAllAsync(string? filterOn = null, string? filterQuery = null, string? sortBy = null, string? sortOrder = "ASC")
+  {
+    var walkQuery = dbContext.Walks
+        .Include(w => w.Difficulty)
+        .Include(w => w.Region)
+        .AsQueryable();
+
+    // filtering
+    if (!string.IsNullOrWhiteSpace(filterOn) && !string.IsNullOrWhiteSpace(filterQuery))
+    {
+      if (filterOn.Equals("Name", StringComparison.OrdinalIgnoreCase))
+      {
+        var lowerFilter = filterQuery.ToLower();
+        walkQuery = walkQuery.Where(w => w.Name != null && w.Name.ToLower().Contains(lowerFilter));
+      }
+
     }
 
-    public async Task<WalkDomain> AddAsync(WalkDomain walk)
+
+    // sorting
+    if (!string.IsNullOrWhiteSpace(sortBy) && !string.IsNullOrWhiteSpace(sortOrder))
     {
-
-        await dbContext.Walks.AddAsync(walk);
-        await dbContext.SaveChangesAsync();
-
-        return walk;
+      if (sortBy.Equals("Name", StringComparison.OrdinalIgnoreCase))
+      {
+        walkQuery = sortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase)
+           ? walkQuery.OrderBy(w => w.Name)
+            : walkQuery.OrderByDescending(w => w.Name);
+      }
     }
 
-    public async Task<WalkDomain?> DeleteAsync(Guid id)
+    return await walkQuery.ToListAsync();
+  }
+
+
+  public async Task<WalkDomain?> GetByIdAsync(Guid id)
+  {
+    return await dbContext.Walks.Include("Difficulty").Include("Region").FirstOrDefaultAsync(w => w.Id == id);
+  }
+
+  public async Task<WalkDomain?> UpdateAsync(Guid id, WalkDomain walk)
+  {
+    // 1. Get existing walk
+    var walkToBeUpdated = await dbContext.Walks.FindAsync(id);
+    if (walkToBeUpdated == null)
     {
-        var walkToDelete = await dbContext.Walks.FindAsync(id);
-        if (walkToDelete != null)
-        {
-            var deletedWalk = dbContext.Walks.Remove(walkToDelete);
-            await dbContext.SaveChangesAsync();
-            return walkToDelete;
-        }
-        return null;
-
+      // throw new KeyNotFoundException($"Walk with Id {id} not found.") - Implement Later now just simple returns
+      return null;
     }
-
-    public async Task<List<WalkDomain>> GetAllAsync(string? filterOn = null, string? filterQuery = null, string? sortBy = null, string? sortOrder = null)
-    {
-        var walkQuery = dbContext.Walks
-            .Include(w => w.Difficulty)
-            .Include(w => w.Region)
-            .AsQueryable();
-
-        if (!string.IsNullOrWhiteSpace(filterOn) && !string.IsNullOrWhiteSpace(filterQuery))
-        {
-            if (filterOn.Equals("Name", StringComparison.OrdinalIgnoreCase))
-            {
-                var lowerFilter = filterQuery.ToLower();
-                walkQuery = walkQuery.Where(w => w.Name != null && w.Name.ToLower().Contains(lowerFilter));
-            }
-        }
-
-        return await walkQuery.ToListAsync();
-    }
-
-
-    public async Task<WalkDomain?> GetByIdAsync(Guid id)
-    {
-        return await dbContext.Walks.Include("Difficulty").Include("Region").FirstOrDefaultAsync(w => w.Id == id);
-    }
-
-    public async Task<WalkDomain?> UpdateAsync(Guid id, WalkDomain walk)
-    {
-        // 1. Get existing walk
-        var walkToBeUpdated = await dbContext.Walks.FindAsync(id);
-        if (walkToBeUpdated == null)
-        {
-            // throw new KeyNotFoundException($"Walk with Id {id} not found.") - Implement Later now just simple returns
-            return null;
-        }
-        // 2. Update properties.
-        walkToBeUpdated.Name = walk.Name;
-        walkToBeUpdated.Description = walk.Description;
-        walkToBeUpdated.DifficultyId = walk.DifficultyId;
-        walkToBeUpdated.Region = walk.Region;
-        // 3. Save changes.
-        await dbContext.SaveChangesAsync();
-        // 4. Return updated walk.
-        return walkToBeUpdated;
-    }
+    // 2. Update properties.
+    walkToBeUpdated.Name = walk.Name;
+    walkToBeUpdated.Description = walk.Description;
+    walkToBeUpdated.DifficultyId = walk.DifficultyId;
+    walkToBeUpdated.Region = walk.Region;
+    // 3. Save changes.
+    await dbContext.SaveChangesAsync();
+    // 4. Return updated walk.
+    return walkToBeUpdated;
+  }
 }
