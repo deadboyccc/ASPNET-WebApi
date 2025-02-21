@@ -71,6 +71,7 @@ public class Program
         // Repository design pattern dependency injection
         builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
         builder.Services.AddScoped<IWalkRepository, SQLWalksRepository>();
+        builder.Services.AddScoped<ITokenRespository, SQLTokenRepository>();
 
         // AutoMapper depedency injection
         builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
