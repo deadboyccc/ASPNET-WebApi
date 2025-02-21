@@ -36,7 +36,7 @@ class SQLWalksRepository : IWalkRepository
 
   }
 
-  public async Task<List<WalkDomain>> GetAllAsync(string? filterOn = null, string? filterQuery = null, string? sortBy = null, string? sortOrder = "ASC")
+  public async Task<List<WalkDomain>> GetAllAsync(string? filterOn = null, string? filterQuery = null, string? sortBy = null, string? sortOrder = "ASC", int pageNumber = 1, int pageSize = 3)
   {
     var walkQuery = dbContext.Walks
         .Include(w => w.Difficulty)
@@ -65,6 +65,10 @@ class SQLWalksRepository : IWalkRepository
             : walkQuery.OrderByDescending(w => w.Name);
       }
     }
+
+
+    // pagination | basic formula to skip x items based on page number and page size then take the page size
+    walkQuery = walkQuery.Skip((pageNumber - 1) * pageSize).Take(pageSize);
 
     return await walkQuery.ToListAsync();
   }
