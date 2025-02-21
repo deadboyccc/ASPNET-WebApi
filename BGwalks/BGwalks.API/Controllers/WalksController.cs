@@ -39,7 +39,7 @@ public class WalksController : ControllerBase
   // Read Walk GET: /api/walks/{id}?filterOn=Name&filterQuery=track&sortBy=name&sortorder=asc
   // init filtering
   [HttpGet]
-  public async Task<IActionResult> getAllWalks([FromQuery] string? filterOn, [FromQuery] string? filterQuery, [FromQuery] string? sortBy, [FromQuery] string? sortOrder, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
+  public async Task<IActionResult> getAllWalks([FromQuery] string? filterOn, [FromQuery] string? filterQuery, [FromQuery] string? sortBy, [FromQuery] string? sortOrder, [FromQuery] int pageNumber = 10, [FromQuery] int pageSize = 1)
   {
     // getting them from repo
     var walksDomain = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, sortOrder, pageSize, pageNumber);
