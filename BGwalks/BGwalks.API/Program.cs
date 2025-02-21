@@ -32,6 +32,10 @@ public class Program
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
         });
+        builder.Services.AddDbContext<BGWalksAuthDbContext>(options =>
+        {
+            options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksAuthConnectionString"));
+        });
 
 
         // Repository design pattern dependency injection
