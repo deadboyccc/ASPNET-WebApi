@@ -1,4 +1,5 @@
 using BGwalks.API.Data;
+using BGwalks.API.Migrations;
 using BGwalks.API.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,11 +35,25 @@ class SQLWalksRepository : IWalkRepository
 
   }
 
-  public async Task<List<WalkDomain>> GetAllAsync()
+  public async Task<List<WalkDomain>> GetAllAsync(string? filterOn = null, string? filterQuery = null)
   {
-    //action is a void delgate, fun is a return-type delegate
-    return await dbContext.Walks.Include("Difficulty").Include("Region").ToListAsync();
+    var walkQuery = dbContext.Walks
+        .Include(w => w.Difficulty)
+        .Include(w => w.Region)
+        .AsQueryable();
+
+    if (!string.IsNullOrWhiteSpace(filterOn) && !string.IsNullOrWhiteSpace(filterQuery))
+    {
+      if (filterOn.Equals("Name", StringComparison.OrdinalIgnoreCase))
+      {
+        var lowerFilter = filterQuery.ToLower();
+        walkQuery = walkQuery.Where(w => w.Name != null && w.Name.ToLower().Contains(lowerFilter));
+      }
+    }
+
+    return await walkQuery.ToListAsync();
   }
+
 
   public async Task<WalkDomain?> GetByIdAsync(Guid id)
   {

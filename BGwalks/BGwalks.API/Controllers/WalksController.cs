@@ -33,12 +33,13 @@ public class WalksController : ControllerBase
     return Ok(mapper.Map<WalkGetDto>(createdWalkDomain));
   }
 
-  // Read Walk GET: /api/walks/{id}
+  // Read Walk GET: /api/walks/{id}?filterOn=Name&filterQuery=track
+  // init filtering
   [HttpGet]
-  public async Task<IActionResult> getAllWalks()
+  public async Task<IActionResult> getAllWalks([FromQuery] string? filterOn, [FromQuery] string? filterQuery)
   {
     // getting them from repo
-    var walksDomain = await walkRepository.GetAllAsync();
+    var walksDomain = await walkRepository.GetAllAsync(filterOn, filterQuery);
 
     // mapping them to DTOs & returning 200
     return Ok(mapper.Map<List<WalkGetDto>>(walksDomain));
