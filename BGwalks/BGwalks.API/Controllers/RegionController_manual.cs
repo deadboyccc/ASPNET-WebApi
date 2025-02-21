@@ -1,5 +1,3 @@
-using System.Threading.Tasks.Dataflow;
-
 using AutoMapper;
 
 using BGwalks.API.Data;
@@ -7,15 +5,15 @@ using BGwalks.API.Models.Domain;
 using BGwalks.API.Models.DTO;
 using BGwalks.API.Repositories;
 
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BGwalks.API.Controllers
 {
     // /api/regions
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] // authroize entire controller
     public class RegionsControllerManual : ControllerBase
     {
         // Dependency injection when the controller is created inject the db context that is injected/coming from the asp app

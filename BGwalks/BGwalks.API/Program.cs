@@ -1,10 +1,12 @@
+using System.Text;
+
 using BGwalks.API.Data;
 using BGwalks.API.Generators;
 using BGwalks.API.Mapings;
-using BGwalks.API.Models.Domain;
 using BGwalks.API.Repositories;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BGwalks.API;
 public class Program
@@ -39,6 +41,36 @@ public class Program
         // AutoMapper depedency injection
         builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
+        // Authentication
+        builder.Services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = "jwt";
+            options.DefaultChallengeScheme = "Jwt";
+        }).AddJwtBearer("Jwt", options =>
+        {
+            options.RequireHttpsMetadata = false;
+            options.SaveToken = true;
+
+
+            // new Token Validation Parameters
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidIssuer = builder.Configuration["Jwt:Issuers"],
+
+                ValidateAudience = true,
+                ValidAudience = builder.Configuration["Jwt:Audience"],
+
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
+
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
+        });
+
+
+
 
         // Building
         var app = builder.Build();
@@ -51,7 +83,11 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+
+
+        app.UseAuthentication();
         app.UseAuthorization();
+
         app.MapControllers();
 
 
