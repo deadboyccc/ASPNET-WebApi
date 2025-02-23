@@ -30,6 +30,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+        builder.Services.AddHttpContextAccessor();
         builder.Services.AddEndpointsApiExplorer();  // Required for Swagger to work
         builder.Services.AddSwaggerGen(options =>
         {
@@ -120,6 +121,7 @@ public class Program
         builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
         builder.Services.AddScoped<IWalkRepository, SQLWalksRepository>();
         builder.Services.AddScoped<ITokenRespository, SQLTokenRepository>();
+        builder.Services.AddScoped<IImageRepository, SQLImageRespository>();
 
         // AutoMapper depedency injection
         builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));

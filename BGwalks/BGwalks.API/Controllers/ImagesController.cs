@@ -9,6 +9,12 @@ namespace BGwalks.API.Controllers;
 [ApiController]
 public class ImagesController : ControllerBase
 {
+  private readonly IImageRepository _imageRepository;
+
+  public ImagesController(IImageRepository imageRepository)
+  {
+    _imageRepository = imageRepository;
+  }
   // POST: /api/Images/upload/
   [HttpPost]
   [Route("upload")]
@@ -27,10 +33,12 @@ public class ImagesController : ControllerBase
         FileSizeInBytes = req.ImageFile!.Length,
         ImageName = req.ImageName,
         ImageDescription = req.ImageDescription,
-        // ImageUrl =
       };
-      await Task.Delay(100);
-      return Ok();
+      // using repo to save the image to the db + file system
+      await _imageRepository.AddAsync(ImageDomainModel);
+
+
+      return Ok(ImageDomainModel);
 
 
     }
@@ -44,7 +52,9 @@ public class ImagesController : ControllerBase
     var allowedExtentions = new List<string> {
       ".jpg", ".jpeg", ".png"
     };
-    if (req.ImageName == null || !allowedExtentions.Contains(Path.GetExtension(req.ImageName)))
+    Console.WriteLine(req.ImageName);
+    Console.WriteLine(Path.GetExtension(req.ImageName));
+    if (req.ImageName == null || !allowedExtentions.Contains(Path.GetExtension(req.ImageFile!.FileName)))
     {
       ModelState.AddModelError("ImageFile", "Invalid file extension. Only JPG, JPEG, and PNG are allowed.");
       return;
