@@ -1,4 +1,5 @@
 ﻿using BGwalks.API.Models.Domain;
+using BGwalks.API.Models.Domain.Models;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,8 @@ public class BGWalksDbContext : DbContext
     public DbSet<DifficultyDomain> Difficulties { get; set; }
     public DbSet<WalkDomain> Walks { get; set; }
     public DbSet<RegionDomain> Regions { get; set; }
+    public DbSet<ImageDomain> Images { get; set; }
+
 
     // Data Seeding
     protected override void OnModelCreating(ModelBuilder modelBuilder)
