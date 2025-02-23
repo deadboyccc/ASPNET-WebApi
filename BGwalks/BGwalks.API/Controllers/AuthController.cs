@@ -69,11 +69,9 @@ namespace BGwalks.API.Controllers
 
         // var token = await GenerateJwtToken(user);
         var token = await TokenRespository.CreateJWTToken(user, roles);
-        return Ok(new
+        return Ok(new LoginResponseDto
         {
-          Status = true,
-          Message = "User logged in successfully.",
-          Token = token  // Commented out for security reasons, use JWT token generation logic instead.
+          JwtToken = token,
         });
       }
 
