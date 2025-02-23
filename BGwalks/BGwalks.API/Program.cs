@@ -9,8 +9,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+
+using Serilog;
 
 namespace BGwalks.API;
 public class Program
@@ -27,6 +30,13 @@ public class Program
         // Register HttpClient
         builder.Services.AddHttpClient();
 
+
+        // logger
+        var logger = new LoggerConfiguration().WriteTo.Console()
+        .MinimumLevel.Information()
+        .CreateLogger();
+        builder.Logging.ClearProviders();
+        builder.Services.AddSerilog(logger);
 
         // Add services to the container.
         builder.Services.AddControllers();
@@ -168,6 +178,13 @@ public class Program
 
         app.UseAuthentication();
         app.UseAuthorization();
+
+        app.UseStaticFiles(new StaticFileOptions()
+        {
+            FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Images")),
+            RequestPath = "/Images"
+            // http://localhost:1234/Images/
+        });
 
         app.MapControllers();
 

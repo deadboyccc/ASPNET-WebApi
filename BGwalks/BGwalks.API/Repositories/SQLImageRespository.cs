@@ -28,7 +28,7 @@ public class SQLImageRespository : IImageRepository
 
     //create image url
 
-    imageDomain.ImageUrl = $"{_httpctx.HttpContext?.Request?.Scheme}://{_httpctx.HttpContext?.Request?.Host}{_httpctx.HttpContext?.Request.PathBase}/images/{imageDomain.ImageName}.{imageDomain.ImageExtention}";
+    imageDomain.ImageUrl = $"{_httpctx.HttpContext?.Request?.Scheme}://{_httpctx.HttpContext?.Request?.Host}{_httpctx.HttpContext?.Request.PathBase}/images/{imageDomain.ImageName}{imageDomain.ImageExtention}";
 
     await _bGWalksDbContext.Images.AddAsync(imageDomain);
     await _bGWalksDbContext.SaveChangesAsync();
