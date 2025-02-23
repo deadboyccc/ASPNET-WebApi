@@ -13,7 +13,7 @@ namespace BGwalks.API.Controllers
     // /api/regions
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // authroize entire controller
+    // [Authorize] 
     public class RegionsControllerManual : ControllerBase
     {
         // Dependency injection when the controller is created inject the db context that is injected/coming from the asp app

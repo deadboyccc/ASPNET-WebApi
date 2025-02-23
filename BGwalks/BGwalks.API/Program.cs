@@ -5,10 +5,12 @@ using BGwalks.API.Generators;
 using BGwalks.API.Mapings;
 using BGwalks.API.Repositories;
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace BGwalks.API;
 public class Program
@@ -29,7 +31,53 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();  // Required for Swagger to work
-        builder.Services.AddSwaggerGen();  // Registers the Swagger generator
+        builder.Services.AddSwaggerGen(options =>
+        {
+            // 1. Define the Swagger document for API version "v1"
+            options.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "BGWalks API",  // API Title
+                Version = "v1"         // API Version
+            });
+
+            // 2. Create a new OpenAPI security scheme object for JWT Bearer tokens
+            var jwtSecurityScheme = new OpenApiSecurityScheme
+            {
+                // The name of the header that carries the token.
+                Name = "Authorization",
+                // Specify that the token will be passed in the header.
+                In = ParameterLocation.Header,
+                // Use the HTTP security scheme, which is appropriate for JWT tokens.
+                Type = SecuritySchemeType.Http,
+                // Set the scheme name to "bearer" (must be lowercase).
+                Scheme = "bearer",
+                // Optional: Inform that the bearer token format is JWT.
+                BearerFormat = "JWT",
+                // Provide a short description on how to use the header.
+                Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {your_token_here}\"",
+                // Reference this security scheme by the name "Bearer" so it can be reused.
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            };
+
+            // 3. Add the security definition to Swagger using the "Bearer" key.
+            options.AddSecurityDefinition("Bearer", jwtSecurityScheme);
+
+            // 4. Add a global security requirement so that all endpoints (or those marked with [Authorize])
+            //    will use this security scheme by default.
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+        {
+            // Reference the previously defined JWT Bearer scheme.
+            jwtSecurityScheme,
+            // Specify that no specific scopes are required (empty array).
+            Array.Empty<string>()
+        }
+            });
+        });
 
         // Databases DI
         builder.Services.AddDbContext<BGWalksDbContext>(options =>
@@ -76,18 +124,15 @@ public class Program
         // AutoMapper depedency injection
         builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
-        // Authentication
         builder.Services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = "jwt";
+            options.DefaultAuthenticateScheme = "Jwt";
             options.DefaultChallengeScheme = "Jwt";
         }).AddJwtBearer("Jwt", options =>
         {
             options.RequireHttpsMetadata = false;
             options.SaveToken = true;
 
-
-            // new Token Validation Parameters
             options.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
@@ -103,7 +148,6 @@ public class Program
                 ClockSkew = TimeSpan.Zero
             };
         });
-
 
 
 
