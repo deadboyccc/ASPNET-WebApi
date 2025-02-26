@@ -36,7 +36,7 @@ namespace BGwalks.API.Controllers
       // if user creation is successful, add roles to user
       if (identityResult.Succeeded && registerRequestDto.Roles!.Length > 0)
       {
-        // try assigning a role to the user
+        // try assigning a role to the user || hardcoded ? loop over the array and add roles using linq
         identityResult = await userManager.AddToRoleAsync(IdentityUser, "User");
 
         // if role assignment is successful, return success message
