@@ -72,6 +72,8 @@ namespace BGwalks.API.Controllers
         return Ok(new LoginResponseDto
         {
           JwtToken = token,
+          Roles = roles.ToList()
+
         });
       }
 
