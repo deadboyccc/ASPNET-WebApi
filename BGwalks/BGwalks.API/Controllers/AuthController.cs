@@ -4,85 +4,83 @@ using BGwalks.API.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
+using System.Linq;
+using System.Threading.Tasks;
+
 namespace BGwalks.API.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
   public class AuthController : ControllerBase
   {
-    private readonly UserManager<IdentityUser> userManager;
-
-    public ITokenRespository TokenRespository { get; }
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly ITokenRespository _tokenRespository;
 
     public AuthController(UserManager<IdentityUser> userManager, ITokenRespository tokenRespository)
     {
-      this.userManager = userManager;
-      TokenRespository = tokenRespository;
+      _userManager = userManager;
+      _tokenRespository = tokenRespository;
     }
-    [HttpPost]
-    [Route("Register")]
+
+    [HttpPost("Register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequestDto registerRequestDto)
     {
-      // create a new user
-      var IdentityUser = new IdentityUser
+      if (registerRequestDto == null || string.IsNullOrWhiteSpace(registerRequestDto.Email) || string.IsNullOrWhiteSpace(registerRequestDto.Password))
       {
-        UserName = registerRequestDto.Email,
-        Email = registerRequestDto.Email,
-      };
-      // create a new user in Identity User Manager
-      var identityResult = await userManager.CreateAsync(IdentityUser, registerRequestDto.Password ?? "");
+        return BadRequest("Invalid registration data.");
+      }
 
+      var identityUser = new IdentityUser { UserName = registerRequestDto.Email, Email = registerRequestDto.Email };
+      var identityResult = await _userManager.CreateAsync(identityUser, registerRequestDto.Password);
 
-      // if user creation is successful, add roles to user
-      if (identityResult.Succeeded && registerRequestDto.Roles!.Length > 0)
+      if (!identityResult.Succeeded)
       {
-        // try assigning a role to the user || hardcoded ? loop over the array and add roles using linq
-        identityResult = await userManager.AddToRoleAsync(IdentityUser, "User");
+        return BadRequest(identityResult.Errors.Select(e => new { e.Code, e.Description }));
+      }
 
-        // if role assignment is successful, return success message
-        if (identityResult.Succeeded)
+      if (registerRequestDto.Roles != null && registerRequestDto.Roles.Any())
+      {
+        foreach (var role in registerRequestDto.Roles)
         {
-          return Ok(new { Status = identityResult.Succeeded, Message = "User created and added to role 'User'.", User = IdentityUser });
+          var roleResult = await _userManager.AddToRoleAsync(identityUser, role);
+          if (!roleResult.Succeeded)
+          {
+            await _userManager.DeleteAsync(identityUser); // Rollback user creation
+            return BadRequest(roleResult.Errors.Select(e => new { e.Code, e.Description }));
+          }
         }
       }
-      // if user creation or role assignment fails, return error message
-      return BadRequest(identityResult.Errors.Select(e => e.Description));
+      else
+      {
+        var roleResult = await _userManager.AddToRoleAsync(identityUser, "User");
+        if (!roleResult.Succeeded)
+        {
+          await _userManager.DeleteAsync(identityUser);
+          return BadRequest(roleResult.Errors.Select(e => new { e.Code, e.Description }));
+        }
+      }
+
+      return Ok(new { Status = true, Message = "User created and roles assigned." });
     }
 
     [HttpPost("Login")]
     public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
     {
-      // Validate request input
-      if (string.IsNullOrWhiteSpace(loginRequestDto.Email) ||
-          string.IsNullOrWhiteSpace(loginRequestDto.Password))
+      if (loginRequestDto == null || string.IsNullOrWhiteSpace(loginRequestDto.Email) || string.IsNullOrWhiteSpace(loginRequestDto.Password))
       {
         return BadRequest("Email and password are required.");
       }
 
-      // Find user by email
-      var user = await userManager.FindByEmailAsync(loginRequestDto.Email);
-
-      // If user is found and password is correct, generate JWT token
-      if (user != null && await userManager.CheckPasswordAsync(user, loginRequestDto.Password) && (await userManager.GetRolesAsync(user)).Count > 0)
+      var user = await _userManager.FindByEmailAsync(loginRequestDto.Email);
+      if (user == null || !await _userManager.CheckPasswordAsync(user, loginRequestDto.Password) || !(await _userManager.GetRolesAsync(user)).Any())
       {
-        var roles = (await userManager.GetRolesAsync(user)).ToArray();
-
-        // var token = await GenerateJwtToken(user);
-        var token = await TokenRespository.CreateJWTToken(user, roles);
-        return Ok(new LoginResponseDto
-        {
-          JwtToken = token,
-          Roles = roles.ToList()
-
-        });
+        return Unauthorized("Invalid email or password.");
       }
 
-      // Return error if user is not found or password is incorrect
-      return Unauthorized("Invalid email or password.");
+      var roles = (await _userManager.GetRolesAsync(user)).ToArray();
+      var token = await _tokenRespository.CreateJWTToken(user, roles);
+
+      return Ok(new LoginResponseDto { JwtToken = token, Roles = roles.ToList() });
     }
-
-
-
   }
-
 }
