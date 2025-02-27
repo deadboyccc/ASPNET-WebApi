@@ -1,16 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-
-using BGwalks.API.Repositories;
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace BGwalks.API.Repositories
 {
@@ -18,42 +15,58 @@ namespace BGwalks.API.Repositories
   {
     private readonly IConfiguration _config;
 
-    // Dependency Injection via constructor | adding the configration to access appsettings.json
     public SQLTokenRepository(IConfiguration configuration)
     {
       _config = configuration;
     }
 
-
-    // Create JWT token for a user with their email and roles
     public Task<string> CreateJWTToken(IdentityUser user, string[] roles)
     {
-      // Create claims, including the user's email and roles
+      // Validate input parameters
+      if (user == null)
+        throw new ArgumentNullException(nameof(user));
+
+      if (string.IsNullOrEmpty(user.Email))
+        throw new ArgumentException("User email is required to create a token.", nameof(user));
+
+      // Retrieve JWT settings from configuration
+      var jwtKey = _config["Jwt:Key"];
+      var jwtIssuer = _config["Jwt:Issuer"];
+      var jwtAudience = _config["Jwt:Audience"];
+
+      if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
+      {
+        throw new InvalidOperationException("JWT configuration is missing. Please check your appsettings.json.");
+      }
+
+      // Create claims including email and roles
       var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, user.Email!)
+                new Claim(ClaimTypes.Email, user.Email)
             };
-      claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+      if (roles != null && roles.Any())
+      {
+        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+      }
 
-      // Generate the symmetric security key using the JWT key from configuration
-      var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
+      // Generate symmetric security key from the JWT key
+      var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
 
-      // Create the token descriptor with claims, expiry, and signing credentials
+      // Define token descriptor with claims, issuer, audience, expiration (using UTC), and signing credentials
       var tokenDescriptor = new SecurityTokenDescriptor
       {
-        Issuer = _config["Jwt:Issuer"],
-        Audience = _config["Jwt:Audience"],
+        Issuer = jwtIssuer,
+        Audience = jwtAudience,
         Subject = new ClaimsIdentity(claims),
-        Expires = DateTime.Now.AddHours(2),
+        Expires = DateTime.UtcNow.AddHours(2),
         SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
       };
 
-      // Create and write the token
+      // Create and write the token using JwtSecurityTokenHandler
       var tokenHandler = new JwtSecurityTokenHandler();
       var token = tokenHandler.CreateToken(tokenDescriptor);
       var tokenString = tokenHandler.WriteToken(token);
 
-      // Since there is no asynchronous operation, wrap the result in Task.FromResult
       return Task.FromResult(tokenString);
     }
   }

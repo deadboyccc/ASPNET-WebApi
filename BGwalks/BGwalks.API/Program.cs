@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -158,9 +159,17 @@ public class Program
 
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.Zero
+
             };
+            IdentityModelEventSource.ShowPII = true;
+
         });
 
+        //DEBUGGING
+        // console log all the JWT configuration variables from builder.configuration to the console
+        Console.WriteLine($"Jwt:Issuer: {builder.Configuration["Jwt:Issuer"]}");
+        Console.WriteLine($"Jwt:Audience: {builder.Configuration["Jwt:Audience"]}");
+        Console.WriteLine($"Jwt:Key: {builder.Configuration["Jwt:Key"]}");
 
 
         // Building
