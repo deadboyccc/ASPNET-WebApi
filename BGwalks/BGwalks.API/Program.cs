@@ -148,7 +148,7 @@ public class Program
             options.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
-                ValidIssuer = builder.Configuration["Jwt:Issuers"],
+                ValidIssuer = builder.Configuration["Jwt:Issuer"],
 
                 ValidateAudience = true,
                 ValidAudience = builder.Configuration["Jwt:Audience"],

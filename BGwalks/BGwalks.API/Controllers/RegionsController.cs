@@ -32,7 +32,7 @@ namespace BGwalks.API.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
-        [Authorize(Roles = "User")]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             // db context implementation 
