@@ -36,11 +36,14 @@ public class Program
         var logger = new LoggerConfiguration().WriteTo.Console()
         .MinimumLevel.Information()
         .CreateLogger();
+
+        // Clear out existing logging providers so Serilog can replace them.
         builder.Logging.ClearProviders();
         builder.Services.AddSerilog(logger);
 
         // Add services to the container.
         builder.Services.AddControllers();
+        // adding httpCTX accessor to allow access to HttpContext in services
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddEndpointsApiExplorer();  // Required for Swagger to work
         builder.Services.AddSwaggerGen(options =>
@@ -91,7 +94,7 @@ public class Program
             });
         });
 
-        // Databases DI
+        // Database Context setup 
         builder.Services.AddDbContext<BGWalksDbContext>(options =>
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("BGWalksConnectionString"));
@@ -107,7 +110,6 @@ public class Program
            .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("BGWalks")
            .AddEntityFrameworkStores<BGWalksAuthDbContext>()
            .AddDefaultTokenProviders();
-        //
         builder.Services.Configure<IdentityOptions>(options =>
         {
             // Password settings
@@ -137,12 +139,14 @@ public class Program
         // AutoMapper depedency injection
         builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
+        // adding authentication with JWT Bearer
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultAuthenticateScheme = "Jwt";
             options.DefaultChallengeScheme = "Jwt";
         }).AddJwtBearer("Jwt", options =>
         {
+            // Configure JWT Bearer to expect a token parameter in the Authorization header
             options.RequireHttpsMetadata = false;
             options.SaveToken = true;
 
@@ -165,11 +169,13 @@ public class Program
 
         });
 
-        //DEBUGGING
+        #region DEBUGGING
+        // #DEBUGGING#
         // console log all the JWT configuration variables from builder.configuration to the console
         Console.WriteLine($"Jwt:Issuer: {builder.Configuration["Jwt:Issuer"]}");
         Console.WriteLine($"Jwt:Audience: {builder.Configuration["Jwt:Audience"]}");
         Console.WriteLine($"Jwt:Key: {builder.Configuration["Jwt:Key"]}");
+        #endregion
 
 
         // Building
@@ -182,12 +188,14 @@ public class Program
             app.UseSwaggerUI();  // Configures the UI
         }
 
+
+        // Configure the HTTP request pipeline.
         app.UseHttpsRedirection();
-
-
+        // using authentication and authorization middleware
         app.UseAuthentication();
         app.UseAuthorization();
 
+        // Serve static files from the wwwroot folder
         app.UseStaticFiles(new StaticFileOptions()
         {
             FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Images")),
@@ -195,6 +203,7 @@ public class Program
             // http://localhost:1234/Images/
         });
 
+        // enable controllers from this assembly
         app.MapControllers();
 
 
@@ -205,6 +214,7 @@ public class Program
             walkDataGenerator.GenerateWalkData(10);
         }
 
+        // Run the web host
         app.Run();
 
 
