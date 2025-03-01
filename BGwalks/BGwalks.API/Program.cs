@@ -3,12 +3,11 @@ using System.Text;
 using BGwalks.API.Data;
 using BGwalks.API.Generators;
 using BGwalks.API.Mapings;
+using BGwalks.API.Middlewares;
 using BGwalks.API.Repositories;
 
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -192,6 +191,8 @@ public class Program
             app.UseSwaggerUI();  // Configures the UI
         }
 
+        // Global error handling middleware
+        app.UseMiddleware<ExceptionHandlerMiddleware>();
 
         // Configure the HTTP request pipeline.
         app.UseHttpsRedirection();
