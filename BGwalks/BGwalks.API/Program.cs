@@ -33,7 +33,11 @@ public class Program
 
 
         // logger
-        var logger = new LoggerConfiguration().WriteTo.Console()
+        var logger = new LoggerConfiguration()
+        // for DEV environment
+        .WriteTo.Console()
+        // for PROD environment
+        .WriteTo.File("Logs/bgwalks.log", rollingInterval: RollingInterval.Infinite)
         .MinimumLevel.Information()
         .CreateLogger();
 

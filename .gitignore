@@ -24,8 +24,9 @@ appsettings.Development.json
 appsettings.Local.json
 
 # Ignore logs and database
-logs/
-*.log
+# NO :3
+# logs/
+# *.log
 
 # Ignore temporary files
 _temp/
