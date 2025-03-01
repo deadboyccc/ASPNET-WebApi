@@ -126,3 +126,322 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2025-03-01 12:49:12.533 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-03-01 12:49:12.533 +03:00 [INF] Hosting environment: Development
 2025-03-01 12:49:12.533 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:13:26.838 +03:00 [INF] Application is shutting down...
+2025-03-01 13:13:36.978 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:13:37.093 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:13:37.096 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:13:37.097 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:13:37.097 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:13:40.599 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5102/api/Regions - application/json 52
+2025-03-01 13:13:40.654 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-03-01 13:13:40.683 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.CreateRegion (BGwalks.API)'
+2025-03-01 13:13:40.707 +03:00 [INF] Route matched with {action = "CreateRegion", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegion(BGwalks.API.Models.DTO.regionCreateDto) on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:13:41.088 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Regions] ([Id], [Name], [RegionImageUrl])
+VALUES (@p0, @p1, @p2);
+2025-03-01 13:13:41.123 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'BGwalks.API.Models.DTO.RegionGetDto'.
+2025-03-01 13:13:41.166 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.CreateRegion (BGwalks.API) in 453.385ms
+2025-03-01 13:13:41.174 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.CreateRegion (BGwalks.API)'
+2025-03-01 13:13:41.187 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5102/api/Regions - 201 null application/json; charset=utf-8 589.1087ms
+2025-03-01 13:13:50.183 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:13:50.201 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-01 13:13:50.207 +03:00 [INF] AuthenticationScheme: Jwt was challenged.
+2025-03-01 13:13:50.208 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 401 0 null 25.6156ms
+2025-03-01 13:13:51.272 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:13:51.278 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-01 13:13:51.279 +03:00 [INF] AuthenticationScheme: Jwt was challenged.
+2025-03-01 13:13:51.280 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 401 0 null 8.3713ms
+2025-03-01 13:13:52.452 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:13:52.455 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-01 13:13:52.456 +03:00 [INF] AuthenticationScheme: Jwt was challenged.
+2025-03-01 13:13:52.456 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 401 0 null 4.5386ms
+2025-03-01 13:13:55.254 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 13:13:55.325 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 71.2765ms
+2025-03-01 13:13:55.362 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 13:13:55.364 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 2.0774ms
+2025-03-01 13:13:55.591 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 13:13:55.764 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.9153ms
+2025-03-01 13:13:57.970 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:13:57.971 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-01 13:13:57.971 +03:00 [INF] AuthenticationScheme: Jwt was challenged.
+2025-03-01 13:13:57.972 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 401 0 null 1.7726ms
+2025-03-01 13:14:16.210 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5102/api/Auth/Login - application/json 60
+2025-03-01 13:14:16.211 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.AuthController.Login (BGwalks.API)'
+2025-03-01 13:14:16.219 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BGwalks.API.Models.DTO.LoginRequestDto) on controller BGwalks.API.Controllers.AuthController (BGwalks.API).
+2025-03-01 13:14:16.609 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-03-01 13:14:16.814 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-03-01 13:14:16.821 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-03-01 13:14:16.847 +03:00 [INF] Executing OkObjectResult, writing value of type 'BGwalks.API.Models.DTO.LoginResponseDto'.
+2025-03-01 13:14:16.852 +03:00 [INF] Executed action BGwalks.API.Controllers.AuthController.Login (BGwalks.API) in 632.6333ms
+2025-03-01 13:14:16.854 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.AuthController.Login (BGwalks.API)'
+2025-03-01 13:14:16.856 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5102/api/Auth/Login - 200 null application/json; charset=utf-8 646.0065ms
+2025-03-01 13:14:26.255 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:26.316 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:26.323 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:26.327 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 2.4946ms
+2025-03-01 13:14:26.327 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:26.328 +03:00 [ERR] 💣29b5dda2-b0e5-4af2-a7c0-c3a5f6e0e68b: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:26.357 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 102.0323ms
+2025-03-01 13:14:30.238 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:30.239 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:30.240 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:30.244 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 4.1104ms
+2025-03-01 13:14:30.245 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:30.245 +03:00 [ERR] 💣87eccd97-08ca-4a30-a424-6fe833188ba0: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:30.248 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 10.3337ms
+2025-03-01 13:14:30.836 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:30.837 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:30.841 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:30.842 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6311ms
+2025-03-01 13:14:30.843 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:30.844 +03:00 [ERR] 💣d4c05d2a-ca4a-44d4-a6f6-28a1908f914f: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:30.846 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 10.4007ms
+2025-03-01 13:14:31.332 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:31.333 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:31.333 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:31.334 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6744ms
+2025-03-01 13:14:31.335 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:31.335 +03:00 [ERR] 💣6a09c3b0-0df0-4f8c-ba6d-98fef8d3ef4a: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:31.337 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 5.4436ms
+2025-03-01 13:14:31.717 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:31.718 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:31.718 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:31.720 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 1.0416ms
+2025-03-01 13:14:31.720 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:31.721 +03:00 [ERR] 💣3d3a3b3b-03fd-4749-a366-51241b693ad0: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:31.723 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 6.5317ms
+2025-03-01 13:14:31.991 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:31.992 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:31.993 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:31.994 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6854ms
+2025-03-01 13:14:31.994 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:31.995 +03:00 [ERR] 💣2548ef4e-10d8-433d-83e8-366fcf51dd3a: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:31.997 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 5.6794ms
+2025-03-01 13:14:32.162 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:32.163 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.164 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:32.164 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.5913ms
+2025-03-01 13:14:32.165 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.165 +03:00 [ERR] 💣5ba02f82-a670-4c9a-aef5-eff1bbbf7cd2: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:32.168 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 5.7036ms
+2025-03-01 13:14:32.329 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:32.330 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.331 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:32.332 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6643ms
+2025-03-01 13:14:32.333 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.333 +03:00 [ERR] 💣83eb6d24-1730-4f76-bacd-b90dbcd0d835: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:32.336 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 6.4712ms
+2025-03-01 13:14:32.468 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:32.469 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.469 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:32.470 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6048ms
+2025-03-01 13:14:32.471 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.471 +03:00 [ERR] 💣2432de4d-1410-4a81-8145-9ea0c0a021fe: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:32.474 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 6.4024ms
+2025-03-01 13:14:32.615 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:32.616 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.616 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:32.618 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6103ms
+2025-03-01 13:14:32.618 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.619 +03:00 [ERR] 💣e91a9513-09c3-470a-aa55-c4fedcae46b0: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:32.621 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 5.9163ms
+2025-03-01 13:14:32.764 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Regions - null null
+2025-03-01 13:14:32.765 +03:00 [INF] Executing endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.766 +03:00 [INF] Route matched with {action = "GetAll", controller = "Regions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller BGwalks.API.Controllers.RegionsController (BGwalks.API).
+2025-03-01 13:14:32.767 +03:00 [INF] Executed action BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API) in 0.6061ms
+2025-03-01 13:14:32.768 +03:00 [INF] Executed endpoint 'BGwalks.API.Controllers.RegionsController.GetAll (BGwalks.API)'
+2025-03-01 13:14:32.768 +03:00 [ERR] 💣ccd2b5d3-1e40-40e7-8dcb-a8004225c21c: Exception in GetAll💣
+System.Exception: Exception in GetAll
+   at BGwalks.API.Controllers.RegionsController.GetAll() in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Controllers/RegionsController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
+2025-03-01 13:14:32.770 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 6.6917ms

@@ -35,6 +35,9 @@ namespace BGwalks.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetAll()
         {
+            // // debug
+            // throw new Exception("Exception in GetAll");
+
             // db context implementation 
             // var regions = await _dbContext.Regions.ToListAsync();
 
