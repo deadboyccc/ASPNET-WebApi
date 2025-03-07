@@ -445,3 +445,588 @@ System.Exception: Exception in GetAll
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at BGwalks.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API/Middlewares/ExceptionHandlerMiddleware.cs:line 19
 2025-03-01 13:14:32.770 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Regions - 500 null application/json; charset=utf-8 6.6917ms
+2025-03-01 13:47:21.386 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 13:47:21.448 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 62.9143ms
+2025-03-01 13:47:21.493 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 13:47:21.495 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 2.0127ms
+2025-03-01 13:47:21.683 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 13:47:21.809 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 126.0132ms
+2025-03-01 13:47:24.709 +03:00 [INF] Application is shutting down...
+2025-03-01 13:47:36.762 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:47:36.857 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:47:36.862 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:47:36.862 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:47:36.865 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:47:37.927 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 13:47:38.063 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 137.18ms
+2025-03-01 13:47:38.096 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 13:47:38.111 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 16.0601ms
+2025-03-01 13:47:38.229 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 13:47:38.384 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/Students" for actions - BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API), BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API). Actions require a unique method/path combination for Swagger/OpenAPI 2.0 and 3.0. Use ConflictingActionsResolver as a workaround or provide your own implementation of PathGroupSelector.
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:47:38.398 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 169.2567ms
+2025-03-01 13:48:33.054 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Student - null null
+2025-03-01 13:48:33.058 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-03-01 13:48:33.151 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/27/2025 15:16:32', Current time (UTC): '03/01/2025 10:48:33'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-03-01 13:48:33.164 +03:00 [INF] Jwt was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/27/2025 15:16:32', Current time (UTC): '03/01/2025 10:48:33'.
+2025-03-01 13:48:33.166 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Student - 404 0 null 112.6324ms
+2025-03-01 13:48:33.170 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5102/api/Student, Response status code: 404
+2025-03-01 13:48:46.052 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:48:46.055 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:48:46.067 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 15.0514ms
+2025-03-01 13:50:18.702 +03:00 [INF] Application is shutting down...
+2025-03-01 13:50:30.555 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:50:30.655 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:50:30.672 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:50:30.673 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:50:30.674 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:50:48.745 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:50:48.810 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:50:48.850 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 105.7833ms
+2025-03-01 13:51:46.758 +03:00 [INF] Application is shutting down...
+2025-03-01 13:51:57.138 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:51:57.218 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:51:57.221 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:51:57.222 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:51:57.223 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:51:58.706 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:51:58.751 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:51:58.777 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 72.5431ms
+2025-03-01 13:52:00.587 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:52:00.591 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:52:00.594 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 8.1485ms
+2025-03-01 13:52:15.609 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:52:15.610 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:52:15.611 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 1.7906ms
+2025-03-01 13:52:16.528 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:52:16.529 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:52:16.531 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 2.7535ms
+2025-03-01 13:52:27.836 +03:00 [INF] Application is shutting down...
+2025-03-01 13:52:41.424 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:52:41.505 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:52:41.509 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:52:41.511 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:52:41.511 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:52:46.555 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:52:46.588 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:52:46.609 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 55.5157ms
+2025-03-01 13:52:47.495 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:52:47.498 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:52:47.501 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 5.83ms
+2025-03-01 13:55:09.209 +03:00 [INF] Application is shutting down...
+2025-03-01 13:55:21.002 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:55:21.125 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:55:21.128 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:55:21.129 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:55:21.130 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:55:23.404 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:55:23.441 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:55:23.463 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 61.1909ms
+2025-03-01 13:55:24.483 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:55:24.487 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:55:24.502 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 18.8473ms
+2025-03-01 13:55:46.340 +03:00 [INF] Application is shutting down...
+2025-03-01 13:55:58.268 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:55:58.356 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:55:58.361 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:55:58.362 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:55:58.363 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:56:02.090 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:56:02.129 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:56:02.150 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 61.4233ms
+2025-03-01 13:56:03.177 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:56:03.181 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:56:03.184 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 7.5608ms
+2025-03-01 13:56:45.436 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students?api-version=1.0 - null null
+2025-03-01 13:56:45.438 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:56:45.439 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students?api-version=1.0 - 500 null text/plain; charset=utf-8 2.8784ms
+2025-03-01 13:58:55.143 +03:00 [INF] Application is shutting down...
+2025-03-01 13:59:05.245 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 13:59:05.328 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 13:59:05.333 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 13:59:05.334 +03:00 [INF] Hosting environment: Development
+2025-03-01 13:59:05.335 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 13:59:31.990 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 13:59:32.122 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 133.0834ms
+2025-03-01 13:59:32.143 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 13:59:32.148 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 5.3176ms
+2025-03-01 13:59:32.213 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 13:59:32.349 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/Students" for actions - BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API), BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API). Actions require a unique method/path combination for Swagger/OpenAPI 2.0 and 3.0. Use ConflictingActionsResolver as a workaround or provide your own implementation of PathGroupSelector.
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:59:32.375 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 161.7199ms
+2025-03-01 13:59:35.698 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students?api-version=1.0 - null null
+2025-03-01 13:59:35.702 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:59:35.706 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students?api-version=1.0 - 500 null text/plain; charset=utf-8 7.7238ms
+2025-03-01 13:59:40.510 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 13:59:40.513 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 13:59:40.514 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 4.0761ms
+2025-03-01 13:59:52.294 +03:00 [INF] Application is shutting down...
+2025-03-01 14:00:02.439 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:00:02.520 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:00:02.523 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:00:02.525 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:00:02.526 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:00:11.145 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 14:00:11.179 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:00:11.203 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 57.3488ms
+2025-03-01 14:00:13.438 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/Students - null null
+2025-03-01 14:00:13.441 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:00:13.443 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/Students - 500 null text/plain; charset=utf-8 6.3719ms
+2025-03-01 14:02:23.914 +03:00 [INF] Application is shutting down...
+2025-03-01 14:02:35.049 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:02:35.125 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:02:35.128 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:02:35.128 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:02:35.129 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:02:48.163 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:02:48.220 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-03-01 14:02:48.247 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 404 0 null 85.1768ms
+2025-03-01 14:02:48.265 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5102/api/v1/Students, Response status code: 404
+2025-03-01 14:02:53.919 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v2/Students - null null
+2025-03-01 14:02:53.925 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v2/Students - 404 0 null 6.367ms
+2025-03-01 14:02:53.927 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5102/api/v2/Students, Response status code: 404
+2025-03-01 14:03:26.994 +03:00 [INF] Application is shutting down...
+2025-03-01 14:03:39.329 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:03:39.418 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:03:39.421 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:03:39.422 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:03:39.423 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:03:40.309 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v2/Students - null null
+2025-03-01 14:03:40.352 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:03:40.371 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v2/Students - 500 null text/plain; charset=utf-8 62.8221ms
+2025-03-01 14:03:44.943 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1.0/Students - null null
+2025-03-01 14:03:44.948 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:03:44.950 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1.0/Students - 500 null text/plain; charset=utf-8 7.1151ms
+2025-03-01 14:05:47.949 +03:00 [INF] Application is shutting down...
+2025-03-01 14:06:07.905 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:06:08.064 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:06:08.070 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:06:08.070 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:06:08.071 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:06:10.394 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:06:10.432 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:06:10.450 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 56.3843ms
+2025-03-01 14:06:16.969 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v2/Students - null null
+2025-03-01 14:06:16.973 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:06:16.977 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v2/Students - 500 null text/plain; charset=utf-8 7.9585ms
+2025-03-01 14:06:36.146 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/studnets - null null
+2025-03-01 14:06:36.165 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-03-01 14:06:36.189 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/studnets - 404 0 null 43.5606ms
+2025-03-01 14:06:36.193 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5102/api/studnets, Response status code: 404
+2025-03-01 14:06:42.022 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1 - null null
+2025-03-01 14:06:42.025 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1 - 404 0 null 3.2948ms
+2025-03-01 14:06:42.026 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5102/api/v1, Response status code: 404
+2025-03-01 14:06:45.431 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:06:45.432 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.getAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.getAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:06:45.440 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 9.5343ms
+2025-03-01 14:09:12.656 +03:00 [INF] Application is shutting down...
+2025-03-01 14:09:23.263 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:09:23.339 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:09:23.342 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:09:23.343 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:09:23.343 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:09:25.291 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:09:25.330 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:09:25.349 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 59.5586ms
+2025-03-01 14:09:27.663 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:09:27.666 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:09:27.669 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 6.552ms
+2025-03-01 14:09:31.114 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 14:09:31.216 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 101.5869ms
+2025-03-01 14:09:31.241 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 14:09:31.244 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 3.5275ms
+2025-03-01 14:09:31.336 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 14:09:31.458 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v{version}/Students" for actions - BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API), BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API). Actions require a unique method/path combination for Swagger/OpenAPI 2.0 and 3.0. Use ConflictingActionsResolver as a workaround or provide your own implementation of PathGroupSelector.
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:09:31.462 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 126.1308ms
+2025-03-01 14:12:05.566 +03:00 [INF] Application is shutting down...
+2025-03-01 14:12:16.250 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:12:16.333 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:12:16.336 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:12:16.337 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:12:16.337 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:12:20.410 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:12:20.448 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:12:20.468 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 58.4823ms
+2025-03-01 14:12:21.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:12:21.430 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:12:21.432 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 5.6888ms
+2025-03-01 14:12:23.832 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 14:12:23.929 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 96.8727ms
+2025-03-01 14:12:23.950 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 14:12:23.953 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 3.09ms
+2025-03-01 14:12:24.033 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 14:12:24.140 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v{version}/Students" for actions - BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API), BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API). Actions require a unique method/path combination for Swagger/OpenAPI 2.0 and 3.0. Use ConflictingActionsResolver as a workaround or provide your own implementation of PathGroupSelector.
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:12:24.142 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 109.5066ms
+2025-03-01 14:12:24.850 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.html - null null
+2025-03-01 14:12:24.852 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.html - 200 null text/html;charset=utf-8 1.8987ms
+2025-03-01 14:12:24.874 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/index.js - null null
+2025-03-01 14:12:24.875 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/index.js - 200 null application/javascript;charset=utf-8 1.3395ms
+2025-03-01 14:12:24.913 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - null null
+2025-03-01 14:12:24.923 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v{version}/Students" for actions - BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API), BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API). Actions require a unique method/path combination for Swagger/OpenAPI 2.0 and 3.0. Use ConflictingActionsResolver as a workaround or provide your own implementation of PathGroupSelector.
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:12:24.926 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 12.29ms
+2025-03-01 14:12:50.661 +03:00 [INF] Application is shutting down...
+2025-03-01 14:13:07.675 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:13:07.770 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:13:07.773 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:13:07.774 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:13:07.775 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:13:13.407 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:13:13.465 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:13:13.498 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 91.7606ms
+2025-03-01 14:14:48.770 +03:00 [INF] Application is shutting down...
+2025-03-01 14:15:00.580 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-01 14:15:00.656 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-01 14:15:00.660 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-01 14:15:00.661 +03:00 [INF] Hosting environment: Development
+2025-03-01 14:15:00.663 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-01 14:15:08.604 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:15:08.643 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:15:08.661 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 58.6512ms
+2025-03-01 14:15:09.573 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5102/api/v1/Students - null null
+2025-03-01 14:15:09.577 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV2 (BGwalks.API)
+BGwalks.API.Controllers.StudentsController.GetAllStudentsV1 (BGwalks.API)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-01 14:15:09.580 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5102/api/v1/Students - 500 null text/plain; charset=utf-8 7.5581ms
+2025-03-01 14:15:13.324 +03:00 [INF] Application is shutting down...
+2025-03-07 14:26:30.915 +03:00 [INF] User profile is available. Using '/home/ahmed/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-07 14:26:31.034 +03:00 [INF] Now listening on: http://localhost:5102
+2025-03-07 14:26:31.038 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-07 14:26:31.039 +03:00 [INF] Hosting environment: Development
+2025-03-07 14:26:31.039 +03:00 [INF] Content root path: /home/ahmed/projects/ASPNET-WebApi/BGwalks/BGwalks.API
+2025-03-07 14:26:31.467 +03:00 [INF] Application is shutting down...

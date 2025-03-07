@@ -1,5 +1,7 @@
 using System.Text;
 
+using Asp.Versioning;
+
 using BGwalks.API.Data;
 using BGwalks.API.Generators;
 using BGwalks.API.Mapings;
@@ -46,6 +48,26 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+
+        builder.Services.AddApiVersioning(options =>
+        {
+            // When no version is specified, assume version 1.0
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            // Report supported API versions in response headers
+            options.ReportApiVersions = true;
+            // Tell the API versioning system to read the version from the URL segment
+            options.ApiVersionReader = new UrlSegmentApiVersionReader();
+        });
+
+        // builder.Services.AddVersionedApiExplorer(options =>
+        // {
+        //     options.GroupNameFormat = "'v'VVV";
+        //     options.SubstituteApiVersionInUrl = true;
+        // });
+
+
+        // Add Swagger
         // adding httpCTX accessor to allow access to HttpContext in services
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddEndpointsApiExplorer();  // Required for Swagger to work
