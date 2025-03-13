@@ -1,0 +1,142 @@
+#%RAML 1.0
+title: BGwalks API
+version: v1
+baseUri: /api
+mediaType: application/json
+
+types:
+  RegionGetDto:
+    type: object
+    properties:
+      id: string
+      name: string
+      regionImageUrl: string
+  RegionCreateDto:
+    type: object
+    properties:
+      name: string
+      regionImageUrl: string
+    required: [name, regionImageUrl]
+  RegionUpdateDto:
+    type: object
+    properties:
+      name: string
+      regionImageUrl: string
+    required: [name, regionImageUrl]
+
+/regions:
+  get:
+    description: Retrieve all regions
+    securedBy: [oauth_2_0]
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            items: RegionGetDto
+            example: |
+              [
+                {
+                  "id": "123e4567-e89b-12d3-a456-426614174000",
+                  "name": "Region1",
+                  "regionImageUrl": "http://example.com/region1.jpg"
+                },
+                {
+                  "id": "123e4567-e89b-12d3-a456-426614174001",
+                  "name": "Region2",
+                  "regionImageUrl": "http://example.com/region2.jpg"
+                }
+              ]
+  post:
+    description: Create a new region
+    body:
+      application/json:
+        type: RegionCreateDto
+        example: |
+          {
+            "name": "New Region",
+            "regionImageUrl": "http://example.com/newregion.jpg"
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            type: RegionGetDto
+            example: |
+              {
+                "id": "123e4567-e89b-12d3-a456-426614174002",
+                "name": "New Region",
+                "regionImageUrl": "http://example.com/newregion.jpg"
+              }
+
+/regions/{id}:
+  uriParameters:
+    id:
+      type: string
+      description: The unique identifier for a region
+  get:
+    description: Retrieve a region by ID
+    responses:
+      200:
+        body:
+          application/json:
+            type: RegionGetDto
+            example: |
+              {
+                "id": "123e4567-e89b-12d3-a456-426614174000",
+                "name": "Region1",
+                "regionImageUrl": "http://example.com/region1.jpg"
+              }
+      404:
+        description: Region not found
+  patch:
+    description: Update a region by ID
+    body:
+      application/json:
+        type: RegionUpdateDto
+        example: |
+          {
+            "name": "Updated Region",
+            "regionImageUrl": "http://example.com/updatedregion.jpg"
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            type: RegionGetDto
+            example: |
+              {
+                "id": "123e4567-e89b-12d3-a456-426614174000",
+                "name": "Updated Region",
+                "regionImageUrl": "http://example.com/updatedregion.jpg"
+              }
+      404:
+        description: Region not found
+  delete:
+    description: Delete a region by ID
+    responses:
+      204:
+        description: Region deleted successfully
+      404:
+        description: Region not found
+
+securitySchemes:
+  oauth_2_0:
+    type: OAuth 2.0
+    describedBy:
+      headers:
+        Authorization:
+          description: |
+            Used to send a valid OAuth 2 access token. Do not use with the "access_token" query string parameter.
+          type: string
+      responses:
+        401:
+          description: |
+            Bad or expired token. This can happen if the user or GitHub revoked or expired an access token. To fix, re-authenticate the user.
+        403:
+          description: |
+            Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...). Re-authenticating the user won't help here.
+    settings:
+      authorizationUri: https://example.com/authorize
+      accessTokenUri: https://example.com/token
+      authorizationGrants: [ authorization_code, client_credentials ]
