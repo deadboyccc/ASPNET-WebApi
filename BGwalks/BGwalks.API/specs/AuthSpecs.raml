@@ -1,0 +1,86 @@
+#%RAML 1.0
+title: BGwalks API
+version: v1
+baseUri: /api
+mediaType: application/json
+
+/auth:
+  displayName: Authentication
+  description: API for user authentication and registration
+  /Register:
+    post:
+      description: Register a new user
+      body:
+        application/json:
+          type: object
+          properties:
+            email: string
+            password: string
+            roles: string[]
+          example:
+            {
+              "email": "user@example.com",
+              "password": "Password123!",
+              "roles": ["Admin", "User"]
+            }
+      responses:
+        200:
+          description: User created and roles assigned
+          body:
+            application/json:
+              example:
+                {
+                  "Status": true,
+                  "Message": "User created and roles assigned."
+                }
+        400:
+          description: Invalid registration data or user creation failed
+          body:
+            application/json:
+              example:
+                {
+                  "Code": "InvalidData",
+                  "Description": "Invalid registration data."
+                }
+  /Login:
+    post:
+      description: Login a user
+      body:
+        application/json:
+          type: object
+          properties:
+            email: string
+            password: string
+          example:
+            {
+              "email": "user@example.com",
+              "password": "Password123!"
+            }
+      responses:
+        200:
+          description: User logged in successfully
+          body:
+            application/json:
+              example:
+                {
+                  "JwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                  "Roles": ["User"]
+                }
+        400:
+          description: Email and password are required
+          body:
+            application/json:
+              example:
+                {
+                  "Code": "InvalidData",
+                  "Description": "Email and password are required."
+                }
+        401:
+          description: Invalid email or password
+          body:
+            application/json:
+              example:
+                {
+                  "Code": "Unauthorized",
+                  "Description": "Invalid email or password."
+                }
